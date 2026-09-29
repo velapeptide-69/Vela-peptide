@@ -2,6 +2,24 @@
 
 import { useState } from "react";
 
+const navItems = [
+  ["Home", "home"],
+  ["About Us", "about"],
+  ["Products", "products"],
+  ["Applications", "applications"],
+  ["Research", "research"],
+  ["Sustainability", "sustainability"],
+  ["Contact", "contact"],
+];
+
+const benefits = [
+  ["▥", "Faster", "Growth Rate"],
+  ["◇", "Stronger", "Immunity"],
+  ["⟳", "Better Feed", "Conversion (FCR)"],
+  ["♡", "Healthier", "Fish"],
+  ["⌁", "Sustainable", "Aquaculture"],
+];
+
 const categories = [
   {
     title: "Peptides & Proteins",
@@ -51,30 +69,12 @@ const species = [
   ["Seabass", "/images/fish-seabass.jpg"],
 ];
 
-const benefits = [
-  ["▥", "Faster", "Growth Rate"],
-  ["◇", "Stronger", "Immunity"],
-  ["⟳", "Better Feed", "Conversion (FCR)"],
-  ["♡", "Healthier", "Fish"],
-  ["⌁", "Sustainable", "Aquaculture"],
-];
-
-const nav = [
-  ["Home", "home"],
-  ["About Us", "about"],
-  ["Products", "products"],
-  ["Applications", "applications"],
-  ["Research", "research"],
-  ["Sustainability", "sustainability"],
-  ["Contact", "contact"],
-];
-
 export default function Home() {
   const [menu, setMenu] = useState(false);
   const [quote, setQuote] = useState(false);
   const [search, setSearch] = useState(false);
 
-  const go = (id: string) => {
+  const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({
       behavior: "smooth",
       block: "start",
@@ -85,1065 +85,945 @@ export default function Home() {
   return (
     <main className="site">
       <style>{`
-        * {
-          box-sizing: border-box;
+        *{box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{
+          margin:0;
+          background:#021612;
+          color:#fff;
+          font-family:Arial,Helvetica,sans-serif
         }
+        button,input,textarea{font:inherit}
+        button{cursor:pointer}
 
-        html {
-          scroll-behavior: smooth;
-        }
-
-        body {
-          margin: 0;
-          background: #021714;
-          color: white;
-          font-family: Arial, Helvetica, sans-serif;
-        }
-
-        button {
-          font: inherit;
-        }
-
-        .site {
-          min-height: 100vh;
-          overflow-x: hidden;
+        .site{
+          min-height:100vh;
+          overflow:hidden;
           background:
-            radial-gradient(circle at 50% 15%, rgba(0,255,150,.12), transparent 32%),
-            linear-gradient(180deg, #021512 0%, #031d19 45%, #02130f 100%);
+            radial-gradient(circle at 50% 10%,rgba(48,255,139,.10),transparent 30%),
+            #021612
         }
 
-        .topbar {
-          position: fixed;
-          z-index: 100;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: 78px;
-          display: flex;
-          align-items: center;
-          padding: 0 5%;
-          gap: 30px;
-          background: rgba(1,16,14,.82);
-          border-bottom: 1px solid rgba(93,255,158,.18);
-          backdrop-filter: blur(18px);
+        /* HEADER */
+        .header{
+          position:fixed;
+          z-index:100;
+          top:0;
+          left:0;
+          right:0;
+          height:78px;
+          display:flex;
+          align-items:center;
+          gap:25px;
+          padding:0 4.5%;
+          background:rgba(1,15,13,.84);
+          border-bottom:1px solid rgba(92,255,133,.20);
+          backdrop-filter:blur(18px)
         }
 
-        .logo {
-          min-width: 265px;
-          cursor: pointer;
-          background: transparent;
-          border: 0;
-          color: white;
-          text-align: left;
+        .brand{
+          width:265px;
+          flex-shrink:0;
+          border:0;
+          background:transparent;
+          color:#fff;
+          text-align:left
         }
 
-        .logo-main {
-          font-size: 34px;
-          line-height: .9;
-          font-weight: 800;
-          letter-spacing: -1.8px;
+        .brand-name{
+          font-size:34px;
+          line-height:.9;
+          font-weight:900;
+          letter-spacing:-2px
         }
 
-        .logo-main span {
-          color: #5dff42;
+        .brand-name span{color:#67ff43}
+        .brand-mark{color:#67ff43;margin-left:5px}
+        .tagline{
+          margin-top:7px;
+          padding-left:37px;
+          font-size:12px;
+          color:rgba(255,255,255,.82)
         }
 
-        .leaf {
-          color: #68ff40;
-          font-size: 19px;
-          vertical-align: top;
-          margin-left: 4px;
+        .nav{
+          flex:1;
+          display:flex;
+          justify-content:center;
+          gap:22px
         }
 
-        .tagline {
-          margin-top: 7px;
-          padding-left: 38px;
-          font-size: 12px;
-          color: rgba(255,255,255,.82);
-          letter-spacing: .2px;
+        .nav button{
+          position:relative;
+          padding:11px 2px;
+          border:0;
+          background:none;
+          color:#fff;
+          font-size:14px;
+          white-space:nowrap
         }
 
-        .desktop-nav {
-          flex: 1;
-          display: flex;
-          justify-content: center;
-          gap: 25px;
+        .nav button:first-child{color:#69ff46}
+        .nav button:first-child:after{
+          content:"";
+          position:absolute;
+          left:0;
+          right:0;
+          bottom:0;
+          height:3px;
+          border-radius:8px;
+          background:#69ff46;
+          box-shadow:0 0 14px #69ff46
         }
 
-        .desktop-nav button {
-          border: 0;
-          background: transparent;
-          color: rgba(255,255,255,.92);
-          font-size: 14px;
-          padding: 11px 3px;
-          cursor: pointer;
-          position: relative;
-          white-space: nowrap;
+        .header-right{
+          display:flex;
+          align-items:center;
+          gap:15px
         }
 
-        .desktop-nav button:first-child {
-          color: #79ff48;
+        .search-button{
+          width:38px;
+          height:38px;
+          border:0;
+          background:none;
+          color:#fff;
+          font-size:26px
         }
 
-        .desktop-nav button:first-child::after {
-          content: "";
-          position: absolute;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          height: 3px;
-          border-radius: 10px;
-          background: #63ff42;
-          box-shadow: 0 0 15px #54ff38;
+        .language{
+          white-space:nowrap;
+          font-size:14px
         }
 
-        .nav-right {
-          display: flex;
-          align-items: center;
-          gap: 18px;
+        .quote-button,
+        .primary{
+          border:0;
+          border-radius:30px;
+          padding:14px 23px;
+          background:linear-gradient(135deg,#7aff50,#4ee331);
+          color:#03180c;
+          font-weight:800;
+          box-shadow:0 0 25px rgba(87,255,61,.20)
         }
 
-        .icon-btn {
-          width: 38px;
-          height: 38px;
-          border: 0;
-          background: transparent;
-          color: white;
-          font-size: 24px;
-          cursor: pointer;
+        .menu-button{
+          display:none;
+          width:42px;
+          height:42px;
+          border:1px solid rgba(100,255,80,.35);
+          border-radius:11px;
+          background:rgba(0,0,0,.2);
+          color:#6dff4b;
+          font-size:23px
         }
 
-        .language {
-          color: white;
-          font-size: 14px;
-          white-space: nowrap;
+        .mobile-nav{
+          position:fixed;
+          z-index:90;
+          top:78px;
+          left:0;
+          right:0;
+          padding:14px;
+          display:grid;
+          background:rgba(2,20,16,.98);
+          border-bottom:1px solid rgba(100,255,80,.2)
         }
 
-        .quote-btn {
-          border: 0;
-          border-radius: 30px;
-          background: linear-gradient(135deg,#73ff48,#4fe62e);
-          color: #03200f;
-          font-weight: 800;
-          padding: 14px 24px;
-          cursor: pointer;
-          box-shadow: 0 0 25px rgba(94,255,61,.22);
+        .mobile-nav button{
+          padding:14px;
+          border:0;
+          border-radius:10px;
+          background:none;
+          color:#fff;
+          text-align:left
         }
 
-        .mobile-menu-btn {
-          display: none;
-          width: 42px;
-          height: 42px;
-          border-radius: 12px;
-          border: 1px solid rgba(114,255,80,.3);
-          color: #75ff4c;
-          background: rgba(0,0,0,.2);
-          font-size: 25px;
+        .search-box{
+          position:fixed;
+          z-index:110;
+          top:90px;
+          right:5%;
+          width:min(360px,90%);
+          padding:15px;
+          border:1px solid rgba(100,255,80,.35);
+          border-radius:15px;
+          background:#06251c;
+          box-shadow:0 20px 50px #0008
         }
 
-        .hero {
-          position: relative;
-          min-height: 650px;
-          padding: 135px 5% 60px;
-          display: flex;
-          align-items: center;
-          isolation: isolate;
+        .search-box input{
+          width:100%;
+          border:0;
+          outline:0;
+          color:#fff;
+          background:transparent
+        }
+
+        /* HERO */
+        .hero{
+          position:relative;
+          min-height:650px;
+          padding:130px 5% 60px;
+          display:flex;
+          align-items:center;
+          isolation:isolate;
           background:
-            linear-gradient(90deg, rgba(0,10,8,.78) 0%, rgba(0,15,12,.34) 42%, rgba(0,12,9,.12) 100%),
-            url("/images/hero-underwater.jpg") center/cover no-repeat;
+            linear-gradient(90deg,rgba(0,12,9,.88),rgba(0,15,12,.35),rgba(0,12,9,.12)),
+            url("/images/hero-underwater.jpg") center/cover no-repeat
         }
 
-        .hero::before {
-          content: "";
-          position: absolute;
-          inset: 0;
-          z-index: -1;
+        .hero:after{
+          content:"";
+          position:absolute;
+          z-index:-1;
+          inset:0;
           background:
-            radial-gradient(circle at 62% 46%, rgba(0,255,150,.18), transparent 28%),
-            linear-gradient(180deg, rgba(0,20,16,.18), #031813 100%);
+            radial-gradient(circle at 62% 45%,rgba(34,255,146,.17),transparent 28%),
+            linear-gradient(180deg,transparent 45%,#031914 100%)
         }
 
-        .hero-copy {
-          width: 38%;
-          max-width: 540px;
-          z-index: 3;
+        .hero-content{
+          position:relative;
+          z-index:5;
+          width:42%;
+          max-width:570px
         }
 
-        .eyebrow {
-          display: flex;
-          align-items: center;
-          gap: 13px;
-          color: #69ff45;
-          font-size: 12px;
-          font-weight: 800;
-          letter-spacing: 2.8px;
-          margin-bottom: 18px;
+        .eyebrow{
+          display:flex;
+          align-items:center;
+          gap:12px;
+          margin-bottom:18px;
+          color:#69ff46;
+          font-size:11px;
+          font-weight:800;
+          letter-spacing:3px
         }
 
-        .eyebrow::after {
-          content: "";
-          width: 65px;
-          height: 2px;
-          background: #62ff43;
-          box-shadow: 0 0 12px #62ff43;
+        .eyebrow:after{
+          content:"";
+          width:65px;
+          height:2px;
+          background:#69ff46;
+          box-shadow:0 0 12px #69ff46
         }
 
-        .hero h1 {
-          margin: 0;
-          font-size: clamp(44px,5vw,75px);
-          line-height: .94;
-          letter-spacing: -3px;
-          font-weight: 900;
+        .hero h1{
+          margin:0;
+          font-size:clamp(45px,5vw,76px);
+          line-height:.94;
+          letter-spacing:-3px
         }
 
-        .hero h1 .green {
-          color: #64ff43;
-          text-shadow: 0 0 24px rgba(93,255,61,.25);
+        .green{
+          color:#69ff46;
+          text-shadow:0 0 25px rgba(105,255,70,.25)
         }
 
-        .hero p {
-          margin: 23px 0;
-          max-width: 480px;
-          color: rgba(255,255,255,.78);
-          font-size: 16px;
-          line-height: 1.65;
+        .hero-text{
+          max-width:490px;
+          margin:22px 0;
+          color:rgba(255,255,255,.76);
+          font-size:16px;
+          line-height:1.65
         }
 
-        .hero-actions {
-          display: flex;
-          gap: 13px;
-          flex-wrap: wrap;
+        .hero-buttons{
+          display:flex;
+          gap:12px;
+          flex-wrap:wrap
         }
 
-        .primary-btn,
-        .outline-btn {
-          padding: 15px 23px;
-          border-radius: 30px;
-          cursor: pointer;
-          font-weight: 800;
+        .outline{
+          border:1px solid rgba(105,255,70,.60);
+          border-radius:30px;
+          padding:14px 22px;
+          color:#fff;
+          background:rgba(0,25,18,.55)
         }
 
-        .primary-btn {
-          border: 0;
-          color: #03190d;
-          background: #67ff43;
-          box-shadow: 0 0 28px rgba(95,255,65,.2);
+        /* FLOATING CIRCLES */
+        .orbs{
+          position:absolute;
+          inset:0;
+          pointer-events:none
         }
 
-        .outline-btn {
-          color: white;
-          background: rgba(0,20,15,.5);
-          border: 1px solid rgba(103,255,67,.55);
-        }
-
-        .hero-orbs {
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-        }
-
-        .orb {
-          position: absolute;
-          width: 108px;
-          height: 108px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-          padding: 12px;
-          border-radius: 50%;
+        .orb{
+          position:absolute;
+          width:105px;
+          height:105px;
+          display:flex;
+          flex-direction:column;
+          align-items:center;
+          justify-content:center;
+          text-align:center;
+          padding:10px;
+          border:1px solid rgba(105,255,100,.65);
+          border-radius:50%;
           background:
-            radial-gradient(circle at 30% 25%, rgba(120,255,170,.32), rgba(0,40,28,.78) 58%, rgba(0,15,11,.92));
-          border: 1px solid rgba(111,255,111,.6);
-          box-shadow:
-            inset 0 0 30px rgba(67,255,119,.1),
-            0 0 24px rgba(67,255,119,.13);
-          color: white;
-          font-size: 12px;
-          font-weight: 700;
+            radial-gradient(circle at 30% 20%,rgba(110,255,170,.35),rgba(0,42,29,.82) 60%,#021510 100%);
+          box-shadow:0 0 25px rgba(65,255,125,.14),inset 0 0 25px rgba(65,255,125,.10);
+          font-size:11px;
+          font-weight:700
         }
 
-        .orb strong {
-          color: #68ff44;
-          font-size: 25px;
-          line-height: 1;
-          margin-bottom: 7px;
+        .orb strong{
+          margin-bottom:6px;
+          color:#6aff47;
+          font-size:25px
         }
 
-        .orb1 { left: 34%; top: 17%; }
-        .orb2 { left: 30%; top: 48%; }
-        .orb3 { left: 39%; bottom: 12%; }
-        .orb4 { right: 19%; top: 16%; }
-        .orb5 { right: 11%; top: 38%; }
-        .orb6 { right: 18%; bottom: 13%; }
+        .orb1{left:34%;top:15%}
+        .orb2{left:29%;top:47%}
+        .orb3{left:39%;bottom:10%}
+        .orb4{right:19%;top:14%}
+        .orb5{right:11%;top:37%}
+        .orb6{right:18%;bottom:11%}
 
-        .dna {
-          position: absolute;
-          width: 430px;
-          height: 190px;
-          right: 21%;
-          top: 35%;
-          border-top: 5px solid rgba(77,255,159,.72);
-          border-bottom: 5px solid rgba(77,255,159,.72);
-          border-radius: 50%;
-          transform: rotate(-10deg);
-          filter: blur(.1px) drop-shadow(0 0 10px #25ff99);
-          opacity: .7;
-          pointer-events: none;
+        .dna{
+          position:absolute;
+          z-index:1;
+          width:430px;
+          height:185px;
+          right:21%;
+          top:35%;
+          border-top:5px solid #2dff9a99;
+          border-bottom:5px solid #2dff9a99;
+          border-radius:50%;
+          transform:rotate(-10deg);
+          box-shadow:0 0 18px #27ff98;
+          opacity:.65
         }
 
-        .dna::before,
-        .dna::after {
-          content: "";
-          position: absolute;
-          inset: 18px 0;
-          border-top: 4px solid rgba(77,255,159,.65);
-          border-bottom: 4px solid rgba(77,255,159,.65);
-          border-radius: 50%;
+        .dna:before,
+        .dna:after{
+          content:"";
+          position:absolute;
+          inset:17px 0;
+          border-top:4px solid #2dff9a88;
+          border-bottom:4px solid #2dff9a88;
+          border-radius:50%
         }
 
-        .dna::after {
-          transform: rotate(90deg);
+        .dna:after{transform:rotate(90deg)}
+
+        /* BENEFITS */
+        .benefits{
+          position:relative;
+          z-index:10;
+          width:91%;
+          min-height:82px;
+          margin:-30px auto 0;
+          display:grid;
+          grid-template-columns:repeat(5,1fr) 1.05fr;
+          align-items:center;
+          gap:6px;
+          padding:12px 16px;
+          border:1px solid rgba(94,255,145,.48);
+          border-radius:20px;
+          background:rgba(2,37,28,.88);
+          backdrop-filter:blur(18px)
         }
 
-        .benefitbar {
-          position: relative;
-          z-index: 8;
-          width: 91%;
-          margin: -32px auto 0;
-          min-height: 82px;
-          display: grid;
-          grid-template-columns: repeat(5,1fr) 1.1fr;
-          align-items: center;
-          gap: 8px;
-          padding: 12px 18px;
-          border: 1px solid rgba(91,255,150,.45);
-          border-radius: 20px;
-          background: rgba(1,32,24,.84);
-          backdrop-filter: blur(20px);
-          box-shadow: 0 15px 50px rgba(0,0,0,.28);
+        .benefit{
+          display:flex;
+          align-items:center;
+          gap:9px;
+          padding:8px
         }
 
-        .benefit {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          padding: 8px 9px;
+        .benefit-icon{
+          min-width:30px;
+          color:#69ff46;
+          font-size:27px;
+          text-align:center
         }
 
-        .benefit-icon {
-          color: #67ff43;
-          font-size: 28px;
-          min-width: 30px;
-          text-align: center;
+        .benefit-text{
+          font-size:11px;
+          line-height:1.3
         }
 
-        .benefit-text {
-          font-size: 12px;
-          line-height: 1.25;
-          color: white;
+        .science{
+          padding-left:20px;
+          border-left:1px solid rgba(100,255,140,.30);
+          color:rgba(255,255,255,.80);
+          font-size:11px;
+          line-height:1.5;
+          letter-spacing:4px
         }
 
-        .science {
-          border-left: 1px solid rgba(108,255,155,.35);
-          padding-left: 22px;
-          color: rgba(255,255,255,.88);
-          letter-spacing: 5px;
-          line-height: 1.55;
-          font-size: 11px;
+        /* COMMON SECTIONS */
+        .section{
+          position:relative;
+          padding:80px 5%
         }
 
-        .section {
-          padding: 85px 5%;
-          position: relative;
-        }
-
-        .section-head {
-          display: flex;
-          justify-content: space-between;
-          align-items: end;
-          gap: 30px;
-          margin-bottom: 30px;
-        }
-
-        .section-label {
-          color: #66ff45;
-          font-size: 11px;
-          letter-spacing: 3px;
-          font-weight: 800;
-          margin-bottom: 9px;
-        }
-
-        .section h2 {
-          margin: 0;
-          font-size: clamp(31px,4vw,50px);
-          line-height: 1;
-          letter-spacing: -1.7px;
-        }
-
-        .section-description {
-          max-width: 330px;
-          color: rgba(255,255,255,.68);
-          line-height: 1.55;
-          font-size: 14px;
-        }
-
-        .products {
+        .products{
           background:
-            radial-gradient(circle at 50% 0%, rgba(33,255,140,.09), transparent 35%),
-            linear-gradient(180deg,#031d18,#031510);
+            radial-gradient(circle at 50% 0,rgba(40,255,140,.09),transparent 35%),
+            #031b15
         }
 
-        .category-grid {
-          display: grid;
-          grid-template-columns: repeat(6,1fr);
-          gap: 14px;
+        .section-head{
+          display:flex;
+          justify-content:space-between;
+          align-items:end;
+          gap:30px;
+          margin-bottom:30px
         }
 
-        .category {
-          position: relative;
-          min-height: 260px;
-          overflow: hidden;
-          border-radius: 17px;
-          border: 1px solid rgba(102,255,137,.3);
-          background: #06251d;
-          cursor: pointer;
-          transition: transform .25s ease, border-color .25s ease;
+        .label{
+          margin-bottom:9px;
+          color:#69ff46;
+          font-size:11px;
+          font-weight:800;
+          letter-spacing:3px
         }
 
-        .category:hover {
-          transform: translateY(-6px);
-          border-color: rgba(104,255,80,.8);
+        h2{
+          margin:0;
+          font-size:clamp(31px,4vw,50px);
+          line-height:1;
+          letter-spacing:-1.7px
         }
 
-        .category img {
-          position: absolute;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          opacity: .72;
+        .section-description{
+          max-width:350px;
+          color:rgba(255,255,255,.67);
+          font-size:14px;
+          line-height:1.55
         }
 
-        .category::after {
-          content: "";
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(180deg,rgba(0,15,10,.16),rgba(0,25,17,.96));
+        /* PRODUCT CARDS */
+        .product-grid{
+          display:grid;
+          grid-template-columns:repeat(6,1fr);
+          gap:14px
         }
 
-        .category-content {
-          position: absolute;
-          z-index: 2;
-          left: 15px;
-          right: 15px;
-          bottom: 15px;
+        .product-card{
+          position:relative;
+          min-height:265px;
+          overflow:hidden;
+          border:1px solid rgba(100,255,120,.28);
+          border-radius:17px;
+          background:#06241c;
+          transition:.25s
         }
 
-        .category-icon {
-          color: #69ff47;
-          font-size: 24px;
-          margin-bottom: 8px;
+        .product-card:hover{
+          transform:translateY(-5px);
+          border-color:#6aff48
         }
 
-        .category h3 {
-          margin: 0 0 6px;
-          font-size: 15px;
+        .product-card img{
+          position:absolute;
+          inset:0;
+          width:100%;
+          height:100%;
+          object-fit:cover;
+          opacity:.70
         }
 
-        .category p {
-          margin: 0;
-          color: rgba(255,255,255,.68);
-          font-size: 11px;
-          line-height: 1.4;
+        .product-card:after{
+          content:"";
+          position:absolute;
+          inset:0;
+          background:linear-gradient(180deg,rgba(0,15,10,.10),rgba(0,25,17,.97))
         }
 
-        .arrow {
-          position: absolute;
-          z-index: 3;
-          right: 12px;
-          bottom: 12px;
-          width: 34px;
-          height: 34px;
-          display: grid;
-          place-items: center;
-          border-radius: 50%;
-          color: #062113;
-          background: #68ff43;
-          font-weight: 900;
+        .product-info{
+          position:absolute;
+          z-index:2;
+          left:15px;
+          right:15px;
+          bottom:15px
         }
 
-        .species-section {
-          padding-top: 35px;
-          padding-bottom: 80px;
+        .product-icon{
+          color:#69ff46;
+          font-size:24px;
+          margin-bottom:6px
+        }
+
+        .product-info h3{
+          margin:0 0 6px;
+          font-size:15px
+        }
+
+        .product-info p{
+          margin:0;
+          color:rgba(255,255,255,.68);
+          font-size:11px;
+          line-height:1.4
+        }
+
+        .card-arrow{
+          position:absolute;
+          z-index:3;
+          right:11px;
+          bottom:11px;
+          width:34px;
+          height:34px;
+          display:grid;
+          place-items:center;
+          border-radius:50%;
+          color:#062113;
+          background:#69ff46;
+          font-weight:900
+        }
+
+        /* SPECIES */
+        .species-section{
           background:
-            linear-gradient(180deg,rgba(0,12,9,.25),rgba(0,7,6,.72)),
-            url("/images/hero-underwater.jpg") center/cover fixed;
+            linear-gradient(180deg,rgba(0,12,9,.20),rgba(0,8,6,.82)),
+            url("/images/hero-underwater.jpg") center/cover no-repeat
         }
 
-        .species-grid {
-          display: grid;
-          grid-template-columns: repeat(7,1fr);
-          gap: 13px;
-          align-items: end;
+        .species-grid{
+          display:grid;
+          grid-template-columns:repeat(7,1fr);
+          gap:12px
         }
 
-        .species {
-          position: relative;
-          height: 210px;
-          overflow: hidden;
-          border-radius: 17px;
-          background: linear-gradient(180deg,rgba(5,48,39,.3),rgba(0,20,15,.85));
-          border: 1px solid rgba(89,255,133,.18);
+        .species{
+          position:relative;
+          height:205px;
+          overflow:hidden;
+          border:1px solid rgba(90,255,130,.20);
+          border-radius:16px;
+          background:rgba(3,30,22,.58)
         }
 
-        .species img {
-          position: absolute;
-          width: 120%;
-          height: 78%;
-          left: -10%;
-          top: 0;
-          object-fit: contain;
-          filter: drop-shadow(0 12px 12px rgba(0,0,0,.5));
+        .species img{
+          position:absolute;
+          top:0;
+          left:-10%;
+          width:120%;
+          height:75%;
+          object-fit:contain;
+          filter:drop-shadow(0 12px 10px #0009)
         }
 
-        .species-name {
-          position: absolute;
-          bottom: 13px;
-          left: 12px;
-          right: 12px;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          font-weight: 800;
+        .species-name{
+          position:absolute;
+          left:12px;
+          right:12px;
+          bottom:12px;
+          display:flex;
+          align-items:center;
+          justify-content:space-between;
+          font-weight:800
         }
 
-        .species-arrow {
-          width: 27px;
-          height: 27px;
-          display: grid;
-          place-items: center;
-          border-radius: 50%;
-          color: #05190f;
-          background: #68ff43;
+        .species-arrow{
+          width:28px;
+          height:28px;
+          display:grid;
+          place-items:center;
+          border-radius:50%;
+          background:#69ff46;
+          color:#061b0e
         }
 
-        .content-section {
-          padding: 85px 5%;
-          background: #031a15;
+        /* CONTENT */
+        .content{
+          padding:80px 5%;
+          background:#031a15
         }
 
-        .info-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 22px;
-        }
-
-        .info-card {
-          min-height: 260px;
-          padding: 35px;
-          border: 1px solid rgba(101,255,125,.23);
-          border-radius: 25px;
+        .dark{
           background:
-            linear-gradient(135deg,rgba(12,59,46,.78),rgba(2,24,18,.78));
-          box-shadow: inset 0 0 45px rgba(55,255,130,.035);
+            radial-gradient(circle at 20% 0,rgba(55,255,140,.07),transparent 28%),
+            #02120f
         }
 
-        .info-card h3 {
-          font-size: 29px;
-          margin: 0 0 15px;
+        .info-grid{
+          display:grid;
+          grid-template-columns:1fr 1fr;
+          gap:22px;
+          margin-top:30px
         }
 
-        .info-card p {
-          color: rgba(255,255,255,.7);
-          line-height: 1.7;
-          max-width: 650px;
+        .info-card{
+          min-height:240px;
+          padding:32px;
+          border:1px solid rgba(100,255,120,.22);
+          border-radius:24px;
+          background:linear-gradient(135deg,rgba(10,58,44,.75),rgba(2,25,19,.82))
         }
 
-        .number-grid {
-          display: grid;
-          grid-template-columns: repeat(3,1fr);
-          gap: 12px;
-          margin-top: 25px;
+        .info-card h3{
+          margin:0 0 14px;
+          font-size:28px
         }
 
-        .number {
-          padding: 18px;
-          border-radius: 15px;
-          border: 1px solid rgba(93,255,110,.2);
-          background: rgba(0,0,0,.16);
+        .info-card p{
+          color:rgba(255,255,255,.68);
+          line-height:1.7
         }
 
-        .number strong {
-          display: block;
-          color: #6cff48;
-          font-size: 27px;
-          margin-bottom: 5px;
+        .numbers{
+          display:grid;
+          grid-template-columns:repeat(3,1fr);
+          gap:10px;
+          margin-top:24px
         }
 
-        .number span {
-          color: rgba(255,255,255,.65);
-          font-size: 12px;
+        .number{
+          padding:16px;
+          border-radius:14px;
+          background:#0002;
+          border:1px solid rgba(100,255,100,.18)
         }
 
-        .dark-panel {
+        .number strong{
+          display:block;
+          margin-bottom:4px;
+          color:#69ff46;
+          font-size:25px
+        }
+
+        .number span{
+          color:rgba(255,255,255,.62);
+          font-size:11px
+        }
+
+        .application-grid{
+          display:grid;
+          grid-template-columns:repeat(3,1fr);
+          gap:17px;
+          margin-top:30px
+        }
+
+        .application{
+          min-height:185px;
+          padding:27px;
+          border:1px solid rgba(100,255,120,.20);
+          border-radius:20px;
+          background:rgba(7,50,38,.62)
+        }
+
+        .application-number{
+          color:#69ff46;
+          font-size:11px;
+          letter-spacing:2px
+        }
+
+        .application h3{
+          margin:13px 0 9px;
+          font-size:20px
+        }
+
+        .application p{
+          margin:0;
+          color:rgba(255,255,255,.63);
+          line-height:1.6;
+          font-size:13px
+        }
+
+        .research-image{
+          width:100%;
+          height:230px;
+          object-fit:cover;
+          border-radius:18px
+        }
+
+        /* CONTACT */
+        .contact{
+          text-align:center;
           background:
-            radial-gradient(circle at 20% 10%,rgba(68,255,145,.08),transparent 25%),
-            #02120f;
+            radial-gradient(circle at 50% 0,rgba(88,255,70,.13),transparent 35%),
+            #031a14
         }
 
-        .application-grid {
-          display: grid;
-          grid-template-columns: repeat(3,1fr);
-          gap: 18px;
-          margin-top: 30px;
+        .contact-box{
+          max-width:850px;
+          margin:auto;
+          padding:50px 30px;
+          border:1px solid rgba(100,255,100,.27);
+          border-radius:30px;
+          background:rgba(4,39,29,.68)
         }
 
-        .application {
-          padding: 28px;
-          min-height: 190px;
-          border-radius: 20px;
-          background: rgba(8,48,37,.62);
-          border: 1px solid rgba(90,255,120,.2);
+        .contact-box p{
+          color:rgba(255,255,255,.65);
+          margin:15px 0 25px
         }
 
-        .application-number {
-          color: #68ff43;
-          font-size: 12px;
-          letter-spacing: 2px;
+        /* FOOTER */
+        footer{
+          padding:45px 5% 25px;
+          background:#010d0a;
+          border-top:1px solid rgba(90,255,110,.15)
         }
 
-        .application h3 {
-          margin: 13px 0 10px;
-          font-size: 20px;
+        .footer-grid{
+          display:grid;
+          grid-template-columns:1.5fr repeat(3,1fr);
+          gap:35px
         }
 
-        .application p {
-          margin: 0;
-          color: rgba(255,255,255,.65);
-          line-height: 1.6;
-          font-size: 13px;
+        .footer-logo{
+          font-size:29px;
+          font-weight:900
         }
 
-        .contact {
-          text-align: center;
-          background:
-            radial-gradient(circle at 50% 0%,rgba(87,255,67,.13),transparent 35%),
-            #031a14;
-        }
+        .footer-logo span{color:#69ff46}
 
-        .contact-box {
-          max-width: 850px;
-          margin: auto;
-          padding: 50px 30px;
-          border: 1px solid rgba(98,255,99,.28);
-          border-radius: 30px;
-          background: rgba(3,38,28,.62);
-        }
-
-        .contact-box h2 {
-          margin-bottom: 15px;
-        }
-
-        .contact-box p {
-          color: rgba(255,255,255,.67);
-          margin-bottom: 25px;
-        }
-
-        footer {
-          padding: 45px 5% 25px;
-          background: #010c09;
-          border-top: 1px solid rgba(91,255,119,.16);
-        }
-
-        .footer-grid {
-          display: grid;
-          grid-template-columns: 1.6fr repeat(3,1fr);
-          gap: 40px;
-        }
-
-        footer h4 {
-          color: #68ff43;
-          margin: 0 0 15px;
-          font-size: 13px;
-          letter-spacing: 1px;
+        footer h4{
+          margin:0 0 14px;
+          color:#69ff46;
+          font-size:12px;
+          letter-spacing:1px
         }
 
         footer p,
-        footer button {
-          color: rgba(255,255,255,.6);
-          font-size: 13px;
-          line-height: 1.8;
+        footer button{
+          color:rgba(255,255,255,.57);
+          font-size:12px;
+          line-height:1.8
         }
 
-        footer button {
-          display: block;
-          border: 0;
-          background: transparent;
-          padding: 3px 0;
-          cursor: pointer;
+        footer button{
+          display:block;
+          padding:2px 0;
+          border:0;
+          background:none;
+          text-align:left
         }
 
-        .footer-logo {
-          font-size: 29px;
-          font-weight: 900;
+        .copyright{
+          margin-top:32px;
+          padding-top:18px;
+          border-top:1px solid rgba(255,255,255,.08);
+          text-align:center;
+          color:rgba(255,255,255,.38);
+          font-size:10px
         }
 
-        .footer-logo span {
-          color: #68ff43;
+        /* MODAL */
+        .modal-bg{
+          position:fixed;
+          z-index:300;
+          inset:0;
+          display:grid;
+          place-items:center;
+          padding:20px;
+          background:rgba(0,8,6,.80);
+          backdrop-filter:blur(10px)
         }
 
-        .copyright {
-          margin-top: 35px;
-          padding-top: 20px;
-          border-top: 1px solid rgba(255,255,255,.08);
-          text-align: center;
-          color: rgba(255,255,255,.4);
-          font-size: 11px;
+        .modal{
+          width:min(520px,100%);
+          padding:30px;
+          border:1px solid rgba(100,255,80,.48);
+          border-radius:24px;
+          background:#06251c;
+          box-shadow:0 25px 80px #0009
         }
 
-        .modal-bg {
-          position: fixed;
-          z-index: 300;
-          inset: 0;
-          display: grid;
-          place-items: center;
-          padding: 20px;
-          background: rgba(0,8,6,.78);
-          backdrop-filter: blur(12px);
-        }
+        .modal h2{margin-bottom:10px}
 
-        .modal {
-          width: min(520px,100%);
-          padding: 30px;
-          border-radius: 25px;
-          background: #06251d;
-          border: 1px solid rgba(105,255,86,.5);
-          box-shadow: 0 25px 80px rgba(0,0,0,.55);
-        }
-
-        .modal h2 {
-          margin-top: 0;
+        .modal p{
+          color:rgba(255,255,255,.62);
+          font-size:13px
         }
 
         .modal input,
-        .modal textarea {
-          width: 100%;
-          margin-bottom: 12px;
-          padding: 14px;
-          color: white;
-          background: #031710;
-          border: 1px solid rgba(105,255,86,.22);
-          border-radius: 12px;
-          outline: none;
+        .modal textarea{
+          width:100%;
+          margin:6px 0;
+          padding:13px;
+          border:1px solid rgba(100,255,80,.20);
+          border-radius:11px;
+          outline:0;
+          color:#fff;
+          background:#031710
         }
 
-        .modal textarea {
-          min-height: 110px;
-          resize: vertical;
+        .modal textarea{
+          min-height:105px;
+          resize:vertical
         }
 
-        .modal-actions {
-          display: flex;
-          gap: 10px;
+        .modal-actions{
+          display:flex;
+          gap:10px;
+          margin-top:10px
         }
 
-        .search-box {
-          position: fixed;
-          z-index: 200;
-          top: 92px;
-          right: 5%;
-          width: min(360px,90%);
-          padding: 15px;
-          border-radius: 15px;
-          background: rgba(3,30,23,.97);
-          border: 1px solid rgba(105,255,86,.35);
-          box-shadow: 0 20px 60px rgba(0,0,0,.4);
-        }
-
-        .search-box input {
-          width: 100%;
-          border: 0;
-          outline: none;
-          color: white;
-          background: transparent;
-          font-size: 15px;
-        }
-
-        @media (max-width: 1100px) {
-          .topbar {
-            padding: 0 3%;
-          }
-
-          .logo {
-            min-width: 205px;
-          }
-
-          .logo-main {
-            font-size: 28px;
-          }
-
-          .desktop-nav {
-            gap: 13px;
-          }
-
-          .desktop-nav button {
-            font-size: 12px;
-          }
-
-          .category-grid {
-            grid-template-columns: repeat(3,1fr);
-          }
-
-          .species-grid {
-            grid-template-columns: repeat(4,1fr);
-          }
-
-          .benefitbar {
-            grid-template-columns: repeat(3,1fr);
-          }
-
-          .science {
-            border-left: 0;
+        /* RESPONSIVE */
+        @media(max-width:1150px){
+          .brand{width:220px}
+          .nav{gap:13px}
+          .nav button{font-size:12px}
+          .product-grid{grid-template-columns:repeat(3,1fr)}
+          .species-grid{grid-template-columns:repeat(4,1fr)}
+          .benefits{grid-template-columns:repeat(3,1fr)}
+          .science{
+            grid-column:span 3;
+            border-left:0;
+            padding-left:0;
+            text-align:center
           }
         }
 
-        @media (max-width: 780px) {
-          .topbar {
-            height: 70px;
-            padding: 0 18px;
-            justify-content: space-between;
+        @media(max-width:780px){
+          .header{
+            height:70px;
+            padding:0 17px;
+            gap:10px
           }
 
-          .logo {
-            min-width: auto;
+          .brand{width:auto}
+          .brand-name{font-size:25px}
+          .tagline{
+            padding-left:0;
+            font-size:9px
           }
 
-          .logo-main {
-            font-size: 25px;
+          .nav,
+          .language,
+          .header-right .quote-button{
+            display:none
           }
 
-          .tagline {
-            padding-left: 0;
-            font-size: 9px;
-            margin-top: 5px;
+          .header-right{margin-left:auto}
+          .menu-button{display:block}
+
+          .hero{
+            min-height:720px;
+            padding:112px 20px 50px;
+            align-items:flex-start;
+            background-position:62% center
           }
 
-          .desktop-nav,
-          .nav-right .language,
-          .nav-right .quote-btn {
-            display: none;
+          .hero-content{
+            width:100%;
+            max-width:600px
           }
 
-          .nav-right {
-            margin-left: auto;
+          .hero h1{
+            font-size:clamp(43px,12vw,62px);
+            letter-spacing:-2px
           }
 
-          .mobile-menu-btn {
-            display: block;
+          .hero-text{
+            max-width:370px;
+            font-size:14px
           }
 
-          .mobile-nav {
-            position: fixed;
-            z-index: 150;
-            top: 70px;
-            left: 0;
-            right: 0;
-            padding: 18px;
-            background: rgba(2,20,16,.98);
-            border-bottom: 1px solid rgba(100,255,100,.2);
-            display: grid;
-            gap: 4px;
+          .orb{
+            width:78px;
+            height:78px;
+            font-size:8px
           }
 
-          .mobile-nav button {
-            padding: 14px;
-            text-align: left;
-            border: 0;
-            border-radius: 10px;
-            background: transparent;
-            color: white;
+          .orb strong{font-size:18px}
+
+          .orb1{left:3%;top:51%}
+          .orb2{left:1%;top:67%}
+          .orb3{left:29%;bottom:5%}
+          .orb4{right:3%;top:49%}
+          .orb5{right:0;top:65%}
+          .orb6{right:28%;bottom:5%}
+
+          .dna{
+            width:300px;
+            right:3%;
+            top:38%
           }
 
-          .hero {
-            min-height: 720px;
-            padding: 115px 20px 55px;
-            align-items: flex-start;
-            background-position: 62% center;
+          .benefits{
+            width:92%;
+            grid-template-columns:repeat(2,1fr);
+            padding:12px
           }
 
-          .hero-copy {
-            width: 100%;
-            max-width: 600px;
-          }
-
-          .hero h1 {
-            font-size: clamp(42px,12vw,62px);
-            letter-spacing: -2px;
-          }
-
-          .hero p {
-            font-size: 14px;
-            max-width: 360px;
-          }
-
-          .hero-orbs {
-            opacity: .85;
-          }
-
-          .orb {
-            width: 78px;
-            height: 78px;
-            font-size: 9px;
-          }
-
-          .orb strong {
-            font-size: 19px;
-          }
-
-          .orb1 { left: 3%; top: 53%; }
-          .orb2 { left: 1%; top: 68%; }
-          .orb3 { left: 29%; bottom: 5%; }
-          .orb4 { right: 3%; top: 50%; }
-          .orb5 { right: 0%; top: 65%; }
-          .orb6 { right: 28%; bottom: 5%; }
-
-          .dna {
-            width: 300px;
-            right: 3%;
-            top: 38%;
-          }
-
-          .benefitbar {
-            width: 92%;
-            margin-top: -25px;
-            grid-template-columns: repeat(2,1fr);
-            padding: 12px;
-          }
-
-          .benefit {
-            padding: 7px;
-          }
-
-          .benefit-icon {
-            font-size: 22px;
-          }
-
-          .science {
-            grid-column: span 2;
-            text-align: center;
-            padding: 13px 0 3px;
+          .science{
+            grid-column:span 2
           }
 
           .section,
-          .content-section {
-            padding: 65px 20px;
+          .content{
+            padding:65px 20px
           }
 
-          .section-head {
-            display: block;
+          .section-head{
+            display:block
           }
 
-          .section-description {
-            margin-top: 18px;
+          .section-description{
+            margin-top:17px
           }
 
-          .category-grid {
-            grid-template-columns: repeat(2,1fr);
+          .product-grid{
+            grid-template-columns:repeat(2,1fr)
           }
 
-          .category {
-            min-height: 235px;
+          .species-grid{
+            grid-template-columns:repeat(2,1fr)
           }
 
-          .species-grid {
-            grid-template-columns: repeat(2,1fr);
-          }
-
-          .species {
-            height: 185px;
-          }
+          .species{height:185px}
 
           .info-grid,
-          .application-grid {
-            grid-template-columns: 1fr;
+          .application-grid{
+            grid-template-columns:1fr
           }
 
-          .number-grid {
-            grid-template-columns: 1fr;
-          }
-
-          .footer-grid {
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
+          .footer-grid{
+            grid-template-columns:1fr 1fr
           }
         }
 
-        @media (max-width: 430px) {
-          .nav-right .icon-btn {
-            display: none;
-          }
-
-          .hero {
-            min-height: 690px;
-          }
-
-          .category-grid {
-            grid-template-columns: 1fr;
-          }
-
-          .category {
-            min-height: 250px;
-          }
-
-          .species-grid {
-            grid-template-columns: repeat(2,1fr);
-          }
-
-          .footer-grid {
-            grid-template-columns: 1fr;
-          }
-
-          .quote-btn {
-            padding: 13px 18px;
-          }
+        @media(max-width:430px){
+          .header-right .search-button{display:none}
+          .hero{min-height:690px}
+          .product-grid{grid-template-columns:1fr}
+          .footer-grid{grid-template-columns:1fr}
+          .numbers{grid-template-columns:1fr}
         }
       `}</style>
 
-      <header className="topbar">
-        <button className="logo" onClick={() => go("home")}>
-          <div className="logo-main">
-            <span>Vela</span> Peptide <i className="leaf">⌁</i>
+      <header className="header">
+        <button className="brand" onClick={() => scrollTo("home")}>
+          <div className="brand-name">
+            <span>Vela</span> Peptide
+            <i className="brand-mark">⌁</i>
           </div>
           <div className="tagline">Advanced Nutrition for Aquatic Life</div>
         </button>
 
-        <nav className="desktop-nav">
-          {nav.map(([label, id]) => (
-            <button key={id} onClick={() => go(id)}>
+        <nav className="nav">
+          {navItems.map(([label, id]) => (
+            <button key={id} onClick={() => scrollTo(id)}>
               {label}
             </button>
           ))}
         </nav>
 
-        <div className="nav-right">
+        <div className="header-right">
           <button
-            className="icon-btn"
-            aria-label="Search"
+            className="search-button"
             onClick={() => setSearch(!search)}
+            aria-label="Search"
           >
             ⌕
           </button>
 
           <span className="language">◎ EN⌄</span>
 
-          <button className="quote-btn" onClick={() => setQuote(true)}>
+          <button className="quote-button" onClick={() => setQuote(true)}>
             Get a Quote →
           </button>
 
           <button
-            className="mobile-menu-btn"
+            className="menu-button"
             onClick={() => setMenu(!menu)}
             aria-label="Menu"
           >
@@ -1157,20 +1037,19 @@ export default function Home() {
           <input
             autoFocus
             placeholder="Search products, solutions..."
-            aria-label="Search"
           />
         </div>
       )}
 
       {menu && (
         <nav className="mobile-nav">
-          {nav.map(([label, id]) => (
-            <button key={id} onClick={() => go(id)}>
+          {navItems.map(([label, id]) => (
+            <button key={id} onClick={() => scrollTo(id)}>
               {label}
             </button>
           ))}
           <button
-            style={{ color: "#69ff47", fontWeight: 800 }}
+            style={{ color: "#69ff46", fontWeight: 800 }}
             onClick={() => {
               setMenu(false);
               setQuote(true);
@@ -1182,7 +1061,7 @@ export default function Home() {
       )}
 
       <section id="home" className="hero">
-        <div className="hero-copy">
+        <div className="hero-content">
           <div className="eyebrow">FISH FEED ADDITIVES</div>
 
           <h1>
@@ -1193,17 +1072,17 @@ export default function Home() {
             Healthier Fish
           </h1>
 
-          <p>
+          <p className="hero-text">
             Advanced peptides, proteins and functional additives for better
             growth, stronger immunity and sustainable aquaculture.
           </p>
 
-          <div className="hero-actions">
-            <button className="primary-btn" onClick={() => setQuote(true)}>
+          <div className="hero-buttons">
+            <button className="primary" onClick={() => setQuote(true)}>
               Get a Quote →
             </button>
 
-            <button className="outline-btn" onClick={() => go("products")}>
+            <button className="outline" onClick={() => scrollTo("products")}>
               View All Products →
             </button>
           </div>
@@ -1211,7 +1090,7 @@ export default function Home() {
 
         <div className="dna" />
 
-        <div className="hero-orbs">
+        <div className="orbs">
           <div className="orb orb1">
             <strong>⌘</strong>
             Peptides
@@ -1229,35 +1108,29 @@ export default function Home() {
 
           <div className="orb orb4">
             <strong>✦</strong>
-            Vitamins &
-            <br />
-            Minerals
+            Vitamins & Minerals
           </div>
 
           <div className="orb orb5">
             <strong>●</strong>
-            Probiotics &
-            <br />
-            Prebiotics
+            Probiotics & Prebiotics
           </div>
 
           <div className="orb orb6">
             <strong>⌁</strong>
-            Functional
-            <br />
-            Additives
+            Functional Additives
           </div>
         </div>
       </section>
 
-      <section className="benefitbar">
-        {benefits.map(([icon, a, b]) => (
-          <div className="benefit" key={a}>
+      <section className="benefits">
+        {benefits.map(([icon, first, second]) => (
+          <div className="benefit" key={first}>
             <div className="benefit-icon">{icon}</div>
             <div className="benefit-text">
-              <strong>{a}</strong>
+              <strong>{first}</strong>
               <br />
-              {b}
+              {second}
             </div>
           </div>
         ))}
@@ -1274,7 +1147,7 @@ export default function Home() {
       <section id="products" className="section products">
         <div className="section-head">
           <div>
-            <div className="section-label">FISH FEED ADDITIVES</div>
+            <div className="label">FISH FEED ADDITIVES</div>
             <h2>Complete Range of Fish Feed Additives</h2>
           </div>
 
@@ -1284,33 +1157,33 @@ export default function Home() {
               productivity for all stages of aquaculture.
             </div>
             <br />
-            <button className="outline-btn" onClick={() => go("contact")}>
+            <button className="outline" onClick={() => scrollTo("contact")}>
               View All Products →
             </button>
           </div>
         </div>
 
-        <div className="category-grid">
+        <div className="product-grid">
           {categories.map((item) => (
-            <article className="category" key={item.title}>
+            <article className="product-card" key={item.title}>
               <img src={item.image} alt={item.title} />
 
-              <div className="category-content">
-                <div className="category-icon">{item.icon}</div>
+              <div className="product-info">
+                <div className="product-icon">{item.icon}</div>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
               </div>
 
-              <div className="arrow">→</div>
+              <div className="card-arrow">→</div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="species-section section">
+      <section className="section species-section">
         <div className="section-head">
           <div>
-            <div className="section-label">AQUACULTURE SPECIES</div>
+            <div className="label">AQUACULTURE SPECIES</div>
             <h2>Solutions for Every Fish Species</h2>
           </div>
 
@@ -1333,11 +1206,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="content-section">
-        <div className="section-label">ABOUT VELA PEPTIDE</div>
+      <section id="about" className="content">
+        <div className="label">ABOUT VELA PEPTIDE</div>
         <h2>Science, Nutrition & Aquaculture</h2>
 
-        <div className="info-grid" style={{ marginTop: 30 }}>
+        <div className="info-grid">
           <div className="info-card">
             <h3>Built Around Aquatic Life</h3>
             <p>
@@ -1346,15 +1219,17 @@ export default function Home() {
               aquaculture production.
             </p>
 
-            <div className="number-grid">
+            <div className="numbers">
               <div className="number">
                 <strong>01</strong>
                 <span>Science Driven</span>
               </div>
+
               <div className="number">
                 <strong>02</strong>
                 <span>Quality Focused</span>
               </div>
+
               <div className="number">
                 <strong>03</strong>
                 <span>Aquaculture Focus</span>
@@ -1371,9 +1246,8 @@ export default function Home() {
             </p>
 
             <button
-              className="primary-btn"
-              onClick={() => go("research")}
-              style={{ marginTop: 10 }}
+              className="primary"
+              onClick={() => scrollTo("research")}
             >
               Explore Research →
             </button>
@@ -1381,8 +1255,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="applications" className="content-section dark-panel">
-        <div className="section-label">APPLICATIONS</div>
+      <section id="applications" className="content dark">
+        <div className="label">APPLICATIONS</div>
         <h2>Solutions Across Aquaculture</h2>
 
         <div className="application-grid">
@@ -1415,143 +1289,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="research" className="content-section">
-        <div className="section-label">RESEARCH & DEVELOPMENT</div>
+      <section id="research" className="content">
+        <div className="label">RESEARCH & DEVELOPMENT</div>
         <h2>Science Driven Solutions</h2>
 
-        <div className="info-grid" style={{ marginTop: 30 }}>
+        <div className="info-grid">
           <div className="info-card">
             <h3>Continuous Innovation</h3>
             <p>
-              Research-led formulation is at the center of Vela Peptide.
-              Ingredient functionality, feed performance and aquatic health
-              guide our product development approach.
-            </p>
-          </div>
-
-          <div className="info-card">
-            <img
-              src="/images/research.jpg"
-              alt="Vela Peptide research"
-              style={{
-                width: "100%",
-                height: 230,
-                objectFit: "cover",
-                borderRadius: 18,
-              }}
-            />
-          </div>
-        </div>
-      </section>
-
-      <section id="sustainability" className="content-section dark-panel">
-        <div className="section-label">SUSTAINABILITY</div>
-        <h2>Better Nutrition. Better Aquaculture.</h2>
-
-        <div className="info-card" style={{ marginTop: 30 }}>
-          <h3>Designed for a Sustainable Future</h3>
-          <p>
-            Efficient nutrition can support responsible aquaculture by helping
-            farmers focus on feed utilization, fish health and productive
-            farming practices.
-          </p>
-        </div>
-      </section>
-
-      <section id="contact" className="section contact">
-        <div className="contact-box">
-          <div className="section-label">GET IN TOUCH</div>
-
-          <h2>Need a Customized Solution?</h2>
-
-          <p>
-            Talk to Vela Peptide about your aquaculture nutrition requirements.
-          </p>
-
-          <button className="primary-btn" onClick={() => setQuote(true)}>
-            Get a Quote →
-          </button>
-        </div>
-      </section>
-
-      <footer>
-        <div className="footer-grid">
-          <div>
-            <div className="footer-logo">
-              <span>Vela</span> Peptide
-            </div>
-            <p>Advanced Nutrition for Aquatic Life</p>
-            <p>
-              Science-driven fish feed additives for modern aquaculture.
-            </p>
-          </div>
-
-          <div>
-            <h4>QUICK LINKS</h4>
-            {nav.slice(0, 4).map(([label, id]) => (
-              <button key={id} onClick={() => go(id)}>
-                {label}
-              </button>
-            ))}
-          </div>
-
-          <div>
-            <h4>OUR SOLUTIONS</h4>
-            <button onClick={() => go("products")}>Peptides & Proteins</button>
-            <button onClick={() => go("products")}>Immunostimulants</button>
-            <button onClick={() => go("products")}>Enzymes</button>
-            <button onClick={() => go("products")}>Probiotics</button>
-          </div>
-
-          <div>
-            <h4>CONTACT</h4>
-            <p>Vela Peptide</p>
-            <p>India</p>
-            <p>Contact us for product enquiries.</p>
-            <button
-              style={{ color: "#69ff47", fontWeight: 800 }}
-              onClick={() => setQuote(true)}
-            >
-              Get a Quote →
-            </button>
-          </div>
-        </div>
-
-        <div className="copyright">
-          © 2026 Vela Peptide. All Rights Reserved. · Advanced Nutrition for
-          Aquatic Life.
-        </div>
-      </footer>
-
-      {quote && (
-        <div className="modal-bg" onClick={() => setQuote(false)}>
-          <div className="modal" onClick={(e) => e.stopPropagation()}>
-            <h2>Get a Quote</h2>
-
-            <p style={{ color: "rgba(255,255,255,.65)" }}>
-              Tell us about your aquaculture requirement.
-            </p>
-
-            <input placeholder="Your Name" />
-            <input placeholder="Email Address" type="email" />
-            <input placeholder="Phone Number" />
-            <textarea placeholder="Tell us about your requirement..." />
-
-            <div className="modal-actions">
-              <button className="primary-btn">
-                Submit Enquiry →
-              </button>
-
-              <button
-                className="outline-btn"
-                onClick={() => setQuote(false)}
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-    </main>
-  );
-}
+              Research-led formulation is at the center
