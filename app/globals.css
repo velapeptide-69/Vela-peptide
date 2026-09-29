@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{--lime:#b4ff35;--deep:#021513}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--deep);color:white;font-family:Arial,sans-serif}
