@@ -11,13 +11,13 @@
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy"
   },
   "dependencies": {
-    "next": "15.5.4",
+    "next": "15.5.27",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "@opennextjs/cloudflare": "latest"
+    "@opennextjs/cloudflare": "^1.20.7"
   },
   "devDependencies": {
-    "wrangler": "latest",
+    "wrangler": "^4.145.0",
     "@types/node": "22.15.21",
     "@types/react": "19.1.5",
     "@types/react-dom": "19.1.5",

@@ -4,7 +4,7 @@ A self-contained Next.js website for Vela Peptide, designed for phone, tablet an
 
 ## Included
 - Premium futuristic aquaculture homepage
-- Local hero, product, research and fish-species imagery
+- Local hero, product, research and fish-species imagery (served from `public/`)
 - Catla, Rohu, Tilapia, Pangasius, Shrimp, Carp and Seabass section
 - Products, applications, research, sustainability and contact sections
 - Responsive mobile navigation
