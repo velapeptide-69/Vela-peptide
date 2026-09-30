@@ -57,13 +57,13 @@ svg { width: 1em; height: 1em; }
   padding: 0 clamp(16px, 4vw, 68px);
 }
 .logo { display: flex; flex-direction: column; line-height: 1; flex-shrink: 0; }
-.logo-word { font-weight: 800; letter-spacing: -1.5px; display: flex; align-items: baseline; gap: 6px; }
+.logo-word { font-family: "Poppins", "Montserrat", system-ui, sans-serif; font-weight: 800; letter-spacing: -1.2px; display: flex; align-items: baseline; gap: 6px; }
 .logo-vela {
   font-size: 44px;
-  background: linear-gradient(180deg, #8ef55c, #36b82a);
+  background: linear-gradient(90deg, #7df06a, #22d8e6);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-.logo-peptide { font-size: 36px; color: #fff; position: relative; }
+.logo-peptide { font-size: 36px; font-weight: 600; color: #fff; position: relative; }
 .logo-leaf { position: absolute; width: 36px; height: 26px; right: -20px; top: -14px; }
 .logo-tag { font-size: 12.5px; font-weight: 500; color: #fff; margin: 4px 0 0 36px; }
 
