@@ -29,6 +29,7 @@ window.addEventListener("scroll", setActive, { passive: true });
 // DNA double helix (SVG)
 (function buildDNA() {
   const svg = document.getElementById("dna");
+  if (!svg) return;
   const ns = "http://www.w3.org/2000/svg";
   const W = 600, H = 420, cx = W / 2, cy = H / 2;
   const amp = 70, turns = 2.2, steps = 220;
