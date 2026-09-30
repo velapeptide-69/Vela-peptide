@@ -253,18 +253,11 @@ h2 { font-size: clamp(26px, 3vw, 36px); font-weight: 700; letter-spacing: -.5px;
 }
 .pc-head h3 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
 .pc-head p { font-size: 11px; color: var(--muted); line-height: 1.3; }
-.pc-img { flex: 1; min-height: 120px; aspect-ratio: 2 / 1; overflow: hidden; position: relative; }
+.pc-img { aspect-ratio: 2.2 / 1; max-width: 100%; overflow: hidden; position: relative; margin-top: auto; }
 .pc-img img {
-  position: absolute; left: 0; top: 0; width: 140%; max-width: none; height: 100%;
-  object-fit: cover; object-position: left 88%; transition: transform .4s; transform-origin: left top;
+  position: absolute; left: 0; bottom: 0; width: 102%; max-width: none; height: auto;
+  transition: transform .4s; transform-origin: center bottom;
 }
-.pc-arrow {
-  position: absolute; right: 10px; bottom: 10px; width: 34px; height: 34px; border-radius: 50%;
-  display: grid; place-items: center; font-size: 18px; color: var(--green);
-  background: rgba(3, 20, 13, .9); border: 1.5px solid var(--green);
-  box-shadow: 0 0 10px rgba(95,224,58,.45); transition: background .2s, color .2s;
-}
-.product-card:hover .pc-arrow { background: var(--green); color: #04200f; }
 .product-card:hover .pc-img img { transform: scale(1.05); }
 
 /* ---------- Species ---------- */
