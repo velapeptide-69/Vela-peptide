@@ -560,3 +560,6 @@ export default function Home() {
           font-weight:900
         }
       `}</style>
+          )}
+  </main>
+);
