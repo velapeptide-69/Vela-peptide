@@ -559,7 +559,8 @@ export default function Home() {
           background:#68ff43;
           font-weight:900
         }
-      `}</style>
-          )}
-  </main>
-);
+  562  `}</style>
+563  )}
+564  </main>
+565  );
+}
