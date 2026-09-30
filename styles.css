@@ -124,19 +124,20 @@ svg { width: 1em; height: 1em; }
 }
 .hero-glow {
   position: absolute; left: 50%; top: 52%; width: 620px; height: 380px;
-  transform: translate(-50%, -50%);
+  margin: -190px 0 0 -310px;
   background: radial-gradient(ellipse, rgba(95, 240, 90, .38), rgba(40, 200, 120, .12) 45%, transparent 70%);
   filter: blur(10px);
 }
 .dna {
   position: absolute; left: 50%; top: 50%; width: 640px; height: 440px;
-  transform: translate(-50%, -48%) rotate(-12deg);
+  margin: -211px 0 0 -320px;
+  transform: rotate(-12deg);
   filter: drop-shadow(0 0 6px rgba(120, 255, 90, .9)) drop-shadow(0 0 16px rgba(80, 230, 70, .6));
   overflow: visible;
 }
 .hero-fish {
-  position: absolute; left: 50%; top: 48%; width: 440px;
-  transform: translate(-54%, -50%);
+  position: absolute; left: 50%; top: 48%; width: 440px; height: 220px;
+  margin: -110px 0 0 -238px;
   animation: swim 6s ease-in-out infinite;
   z-index: 2;
 }
@@ -161,7 +162,7 @@ svg { width: 1em; height: 1em; }
   50% { translate: 0 -12px; }
 }
 .splash {
-  position: absolute; left: 50%; bottom: 0; width: 360px; height: 60px; transform: translateX(-50%);
+  position: absolute; left: 50%; bottom: 0; width: 360px; height: 60px; margin-left: -180px;
   border-radius: 50%;
   border: 2px solid rgba(140, 255, 150, .45);
   box-shadow: 0 0 30px rgba(95, 224, 58, .5), inset 0 0 30px rgba(95, 224, 58, .3);
@@ -366,11 +367,11 @@ h2 { font-size: clamp(26px, 3vw, 36px); font-weight: 700; letter-spacing: -.5px;
 }
 @media (max-width: 820px) {
   .hero-stage { height: auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding: 280px 16px 24px; }
-  .hero-glow { top: 140px; width: 420px; height: 260px; }
-  .dna { top: 140px; width: 440px; height: 300px; }
-  .hero-fish { top: 140px; width: 320px; }
-  .hero-shrimp { top: 20px; left: auto; right: 0; width: 170px; }
-  .splash { top: 220px; bottom: auto; width: 260px; }
+  .hero-glow { top: 140px; width: 360px; height: 240px; margin: -120px 0 0 -180px; }
+  .dna { top: 136px; width: 380px; height: 260px; margin: -130px 0 0 -190px; }
+  .hero-fish { top: 140px; width: 300px; height: 150px; margin: -75px 0 0 -160px; }
+  .hero-shrimp { top: 16px; left: auto; right: 0; width: 160px; }
+  .splash { top: 214px; bottom: auto; width: 240px; height: 44px; margin-left: -120px; }
   .orb { position: relative; inset: auto; margin: 0 auto; width: 96px !important; height: 96px !important; font-size: 10.5px; }
   .benefit { flex: 1 1 40%; }
   .info-grid, .contact-grid { grid-template-columns: 1fr; }
