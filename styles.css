@@ -56,16 +56,8 @@ svg { width: 1em; height: 1em; }
   display: flex; align-items: center; gap: 28px;
   padding: 0 clamp(16px, 4vw, 68px);
 }
-.logo { display: flex; flex-direction: column; line-height: 1; flex-shrink: 0; }
-.logo-word { font-family: "Poppins", "Montserrat", system-ui, sans-serif; font-weight: 800; letter-spacing: -1.2px; display: flex; align-items: baseline; gap: 6px; }
-.logo-vela {
-  font-size: 44px;
-  background: linear-gradient(90deg, #7df06a, #22d8e6);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-.logo-peptide { font-size: 36px; font-weight: 600; color: #fff; position: relative; }
-.logo-leaf { position: absolute; width: 36px; height: 26px; right: -20px; top: -14px; }
-.logo-tag { font-size: 12.5px; font-weight: 500; color: #fff; margin: 4px 0 0 36px; }
+.logo { display: block; flex-shrink: 0; line-height: 0; }
+.logo img { height: 62px; width: auto; border-radius: 10px; box-shadow: 0 0 0 1px rgba(125, 240, 106, .45), 0 0 18px rgba(34, 216, 230, .25); }
 
 .main-nav { display: flex; gap: 6px; margin: 0 auto; }
 .main-nav a {
@@ -312,9 +304,7 @@ h2 { font-size: clamp(26px, 3vw, 36px); font-weight: 700; letter-spacing: -.5px;
   .benefit { flex: 1 1 40%; }
   .info-grid, .contact-grid { grid-template-columns: 1fr; }
   .product-grid { grid-template-columns: repeat(2, 1fr); }
-  .logo-vela { font-size: 36px; }
-  .logo-peptide { font-size: 29px; }
-  .logo-tag { font-size: 10.5px; margin-left: 28px; }
+  .logo img { height: 50px; }
 }
 @media (max-width: 560px) {
   .header-inner { gap: 12px; }
