@@ -385,6 +385,28 @@ h2 { font-size: clamp(26px, 3vw, 36px); font-weight: 700; letter-spacing: -.5px;
   .pp-card { padding: 18px; }
 }
 
+/* ---------- WhatsApp & social ---------- */
+.socials { display: flex; gap: 10px; align-items: center; }
+.soc { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; border: 1.5px solid rgba(255,255,255,.2); color: var(--text); transition: background .2s, border-color .2s, color .2s; }
+.soc svg { width: 18px; height: 18px; }
+.soc-wa:hover { background: #25d366; border-color: #25d366; color: #fff; }
+.soc-ig:hover { background: linear-gradient(45deg, #f9a825, #e1306c, #833ab4); border-color: transparent; color: #fff; }
+.footer-inner { align-items: center; padding-right: 96px; }
+@media (max-width: 560px) { .footer-inner { padding-right: 0; } .site-footer { padding-bottom: 92px; } }
+.contact-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+.contact-btns svg { width: 20px; height: 20px; }
+.btn-wa { background: #25d366; color: #fff; box-shadow: 0 0 18px rgba(37, 211, 102, .45); }
+.btn-wa:hover { transform: translateY(-2px); box-shadow: 0 0 28px rgba(37, 211, 102, .6); }
+.wa-float {
+  position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); z-index: 60;
+  width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center;
+  background: #25d366; color: #fff; box-shadow: 0 6px 20px rgba(0,0,0,.4), 0 0 0 0 rgba(37, 211, 102, .6);
+  animation: wa-pulse 2.4s infinite; transition: transform .2s;
+}
+.wa-float svg { width: 32px; height: 32px; }
+.wa-float:hover { transform: scale(1.08); }
+@keyframes wa-pulse { 0% { box-shadow: 0 6px 20px rgba(0,0,0,.4), 0 0 0 0 rgba(37,211,102,.55); } 70% { box-shadow: 0 6px 20px rgba(0,0,0,.4), 0 0 0 16px rgba(37,211,102,0); } 100% { box-shadow: 0 6px 20px rgba(0,0,0,.4), 0 0 0 0 rgba(37,211,102,0); } }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
