@@ -176,20 +176,13 @@ h2 { font-size: clamp(26px, 3vw, 36px); font-weight: 700; letter-spacing: -.5px;
 .product-grid .product-card { flex: 0 0 calc((100% - 42px) / 4); min-width: 0; }
 .pc-art {
   background:
-    radial-gradient(circle at 25% 30%, rgba(255, 210, 63, .28), transparent 45%),
-    radial-gradient(circle at 75% 70%, rgba(47, 217, 208, .28), transparent 45%),
-    linear-gradient(135deg, #0b3a2a, #062016);
+    #011a30;
 }
-.acid {
-  position: absolute; display: flex; flex-direction: column; align-items: center; line-height: 1.1;
-  padding: 6px 10px; border-radius: 999px; font-size: 13px; font-weight: 800; color: #eafff3;
-  background: rgba(0, 0, 0, .35); border: 1.5px solid var(--c); box-shadow: 0 0 12px color-mix(in srgb, var(--c) 55%, transparent);
+.pc-img .pc-art-img {
+  position: absolute; inset: 0; width: 100%; height: 100%; max-width: none;
+  object-fit: contain; transition: transform .4s;
 }
-.acid small { font-size: 10px; font-weight: 600; color: var(--muted); }
-.a1 { --c: #ffd23f; left: 7%; top: 12%; }
-.a2 { --c: #45e05a; left: 46%; top: 8%; }
-.a3 { --c: #ff9a3d; left: 8%; top: 58%; }
-.a4 { --c: #2fd9d0; left: 44%; top: 56%; }
+.product-card:hover .pc-img .pc-art-img { transform: scale(1.05); }
 .pc-arrow {
   position: absolute; right: 7%; bottom: 10%; width: 46px; height: 46px; border-radius: 50%;
   display: grid; place-items: center; font-size: 24px; color: var(--green);
