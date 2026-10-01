@@ -176,7 +176,7 @@ h2 { font-size: clamp(26px, 3vw, 36px); font-weight: 700; letter-spacing: -.5px;
 .product-grid .product-card { flex: 0 0 calc((100% - 42px) / 4); min-width: 0; }
 .pc-art {
   background:
-    #011a30;
+    #001628;
 }
 .pc-img .pc-art-img {
   position: absolute; inset: 0; width: 100%; height: 100%; max-width: none;
