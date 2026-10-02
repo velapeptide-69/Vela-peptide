@@ -16,7 +16,7 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
 body {
   font-family: "Montserrat", system-ui, sans-serif;
   background: var(--bg);
@@ -411,15 +411,16 @@ h2 { font-size: clamp(26px, 3vw, 36px); font-weight: 700; letter-spacing: -.5px;
 .pp-banner a { display: block; cursor: zoom-in; }
 .pp-banner figcaption { font-size: 12px; color: var(--muted); text-align: center; padding: 6px 0 8px; background: rgba(0,0,0,.3); }
 .sym-list .pep-dot { font-weight: 800; font-size: 13px; letter-spacing: -.3px; font-style: normal; }
-.sym-list li { padding: 8px 12px; }
+.sym-list li { padding: 8px 2px; }
 .pp-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px; margin-bottom: 20px; align-items: start; }
 .pp-side { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
 .pp-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; min-width: 0; }
 .pp-card h2 { font-size: 20px; margin: 0 0 16px; }
 .pep-list, .ben-list, .sp-list { list-style: none; }
-.pep-list { display: flex; flex-direction: column; gap: 10px; }
-.pep-list li { display: flex; align-items: center; gap: 14px; padding: 10px 12px; border-radius: 10px; background: rgba(0,0,0,.22); border: 1px solid rgba(255,255,255,.06); }
-.pep-dot { width: 40px; height: 40px; flex-shrink: 0; border-radius: 10px; display: grid; place-items: center; color: var(--c); border: 1.5px solid var(--c); font-size: 28px; box-shadow: 0 0 12px color-mix(in srgb, var(--c) 45%, transparent); }
+.pep-list { display: flex; flex-direction: column; gap: 0; }
+.pep-list li { display: flex; align-items: center; gap: 14px; padding: 10px 2px; border-bottom: 1px dashed rgba(255,255,255,.1); cursor: default; }
+.pep-list li:last-child { border-bottom: 0; }
+.pep-dot { width: 36px; height: 36px; flex-shrink: 0; border-radius: 50%; display: grid; place-items: center; color: var(--c); background: color-mix(in srgb, var(--c) 14%, transparent); font-size: 24px; }
 .pep-list strong { display: block; font-size: 15px; }
 .pep-list span { font-size: 13px; color: var(--muted); }
 .ben-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -555,7 +556,7 @@ body.fx { background: radial-gradient(ellipse at top, #062a24, var(--bg) 60%) fi
 .fx .product-card:hover .pc-img::after { animation: fx-scan 1.1s ease-out; }
 @keyframes fx-scan { 0% { top: -30%; opacity: 1; } 100% { top: 100%; opacity: 0; } }
 .fx .product-card:hover { box-shadow: 0 12px 34px rgba(0,0,0,.4), 0 0 26px rgba(34, 216, 230, .28); }
-.fx .pc-icon, .fx .pep-dot { box-shadow: 0 0 14px rgba(34, 216, 230, .25), inset 0 0 10px rgba(34, 216, 230, .12); }
+.fx .pc-icon { box-shadow: 0 0 14px rgba(34, 216, 230, .25), inset 0 0 10px rgba(34, 216, 230, .12); }
 
 /* Benefit icons and stats glow */
 .fx .benefit svg, .fx .ben-list svg { color: #7df06a; filter: drop-shadow(0 0 8px rgba(125, 240, 106, .7)); }
