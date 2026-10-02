@@ -7,8 +7,8 @@
   <meta name="description" content="Science-driven fish feed additives: peptides, enzymes, immunostimulants, vitamins, probiotics and functional additives for modern aquaculture." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Exo+2:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=21" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Exo+2:wght@600;700;800&family=Hind:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=22" />
 </head>
 <body class="fx">
   <!-- SVG icon sprite -->
@@ -264,6 +264,24 @@
     </div>
   </footer>
 
+  <!-- Welcome popup -->
+  <div class="promo" id="promo" role="dialog" aria-modal="true" aria-labelledby="promoTitle" hidden>
+    <div class="promo-box">
+      <button class="promo-close" id="promoClose" type="button" aria-label="Close">&times;</button>
+      <p class="promo-tag">VELA PEPTIDE</p>
+      <h2 class="promo-title" id="promoTitle"><span aria-hidden="true">🐟</span> अपना Fish Feed खुद बनाएं</h2>
+      <p class="promo-text">अब तैयार Feed पर निर्भर रहने की जरूरत नहीं।<br />VELA PEPTIDE के advanced additives के साथ अपने fish feed को खुद तैयार करें।</p>
+      <ul class="promo-chips">
+        <li>Peptides</li><li>Amino Acids</li><li>Enzymes</li><li>Probiotics</li><li>Vitamins</li><li>Minerals</li>
+      </ul>
+      <p class="promo-strong">अपनी जरूरत के अनुसार — अपना Feed, अपनी Formulation.</p>
+      <div class="promo-actions">
+        <a class="btn btn-primary" id="promoGo" href="#products">Products देखें <svg><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-wa" href="https://wa.me/919156699969?text=Hello%20Vela%20Peptide%2C%20I%20want%20to%20make%20my%20own%20fish%20feed.%20Please%20guide%20me." target="_blank" rel="noopener">WhatsApp पर पूछें</a>
+      </div>
+    </div>
+  </div>
+
   <!-- Video modal -->
   <div class="modal" id="modal" hidden>
     <div class="modal-box">
@@ -273,6 +291,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=20"></script>
+  <script src="script.js?v=22"></script>
 </body>
 </html>

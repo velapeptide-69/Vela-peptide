@@ -184,3 +184,29 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
   restart();
 })();
+
+// Welcome popup: shows once per visit a moment after the page opens
+(function () {
+  const box = document.getElementById("promo");
+  if (!box) return;
+  let seen = false;
+  try { seen = sessionStorage.getItem("velaPromoSeen") === "1"; } catch (e) {}
+  if (seen) return;
+  let lastFocus = null;
+  function close() {
+    box.hidden = true; document.body.style.overflow = "";
+    try { sessionStorage.setItem("velaPromoSeen", "1"); } catch (e) {}
+    if (lastFocus) lastFocus.focus();
+  }
+  setTimeout(() => {
+    lastFocus = document.activeElement;
+    box.hidden = false; document.body.style.overflow = "hidden";
+    document.getElementById("promoClose").focus();
+  }, 1200);
+  document.getElementById("promoClose").addEventListener("click", close);
+  document.getElementById("promoGo").addEventListener("click", close);
+  box.querySelector(".btn-wa").addEventListener("click", close);
+  box.addEventListener("click", (e) => { if (e.target === box) close(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !box.hidden) close(); });
+})();
+
