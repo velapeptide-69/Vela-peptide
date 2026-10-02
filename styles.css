@@ -480,13 +480,15 @@ h2 { font-size: clamp(26px, 3vw, 36px); font-weight: 700; letter-spacing: -.5px;
 body.fx::before {
   content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
   background:
-    radial-gradient(ellipse 60% 40% at 15% 0%, rgba(34, 216, 230, .10), transparent 70%),
-    radial-gradient(ellipse 50% 40% at 90% 30%, rgba(95, 224, 58, .08), transparent 70%),
     linear-gradient(rgba(34, 216, 230, .045) 1px, transparent 1px) 0 0 / 46px 46px,
-    linear-gradient(90deg, rgba(34, 216, 230, .045) 1px, transparent 1px) 0 0 / 46px 46px;
+    linear-gradient(90deg, rgba(34, 216, 230, .045) 1px, transparent 1px) 0 0 / 46px 46px,
+    radial-gradient(ellipse 60% 40% at 15% 0%, rgba(34, 216, 230, .14), transparent 70%),
+    linear-gradient(180deg, rgba(2, 16, 14, .55), rgba(2, 14, 12, .72)),
+    url("public/hero-underwater.webp") center / cover no-repeat;
 }
-body.fx .products, body.fx .info, body.fx .contact { background: transparent; }
-body.fx { background: radial-gradient(ellipse at top, #062a24, var(--bg) 60%) fixed, var(--bg); }
+body.fx .products, body.fx .info, body.fx .contact, body.fx .species { background: transparent; }
+body.fx .species .waterline { opacity: .5; }
+body.fx { background: #03130f; }
 
 /* Display font + gradient headings */
 .fx h1, .fx h2, .fx .pp-card h2, .fx .text-card h3, .fx .pc-head h3, .fx .fish span { font-family: var(--display); letter-spacing: .2px; }
@@ -522,8 +524,8 @@ body.fx { background: radial-gradient(ellipse at top, #062a24, var(--bg) 60%) fi
 /* Glass panels with gradient edge and HUD corners */
 .fx .product-card, .fx .pp-card, .fx .quote-form, .fx .text-card, .fx .benefits {
   position: relative; isolation: isolate;
-  background: linear-gradient(160deg, rgba(10, 52, 44, .72), rgba(4, 22, 20, .78));
-  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  background: linear-gradient(160deg, rgba(14, 60, 52, .40), rgba(4, 24, 22, .52));
+  -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%);
   border: 1px solid transparent;
   background-clip: padding-box;
   box-shadow: 0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);
@@ -631,3 +633,10 @@ body.fx { background: radial-gradient(ellipse at top, #062a24, var(--bg) 60%) fi
   *, *::before, *::after { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
 }
+
+/* Glass header and footer over the photo background */
+.fx .site-header { background: rgba(3, 20, 16, .45); -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%); }
+.fx .site-footer { background: rgba(3, 20, 16, .45); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+.fx .hero-bg { opacity: .35; }
+.fx .pc-head { background: rgba(0, 0, 0, .12); }
+@media (max-width: 820px) { .fx .site-header { background: rgba(3, 20, 16, .68); } }
