@@ -60,7 +60,7 @@ svg { width: 1em; height: 1em; }
   padding: 0 clamp(16px, 4vw, 68px);
 }
 .logo { display: block; flex-shrink: 0; line-height: 0; }
-.logo img { height: 66px !important; width: auto; filter: drop-shadow(0 0 10px rgba(34, 216, 230, .25)); }
+.logo img { height: 82px !important; width: auto; filter: drop-shadow(0 0 10px rgba(34, 216, 230, .25)); }
 
 .main-nav { display: flex; gap: 6px; margin: 0 auto; }
 .main-nav a {
@@ -382,7 +382,7 @@ h2 { font-size: clamp(26px, 3vw, 36px); font-weight: 700; letter-spacing: -.5px;
   .benefit { flex: 1 1 40%; }
   .info-grid, .contact-grid { grid-template-columns: 1fr; }
   .product-grid .product-card { flex-basis: calc((100% - 14px) / 2); }
-  .logo img { height: 50px !important; }
+  .logo img { height: 64px !important; }
 }
 @media (max-width: 560px) {
   .header-inner { gap: 12px; }
