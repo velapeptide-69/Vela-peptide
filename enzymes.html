@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Exo+2:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=21" />
+  <link rel="stylesheet" href="styles.css?v=22" />
 </head>
 <body class="product-page fx">
   <!-- SVG icon sprite -->
@@ -179,6 +179,31 @@
       document.getElementById("ppNote").textContent = "Thanks! WhatsApp will open with your enquiry. Just tap Send.";
     });
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Banner viewer: opens the banner over the page; tap the image to zoom, X / back / Esc to close
+    (function () {
+      const link = document.querySelector(".pp-banner a");
+      if (!link) return;
+      const box = document.createElement("div");
+      box.className = "lb"; box.hidden = true;
+      box.setAttribute("role", "dialog"); box.setAttribute("aria-modal", "true"); box.setAttribute("aria-label", "Product banner");
+      box.innerHTML = '<button class="lb-close" type="button" aria-label="Close">&times;</button><div class="lb-scroll"><img alt="" /></div><p class="lb-hint">Tap image to zoom · Tap × to close</p>';
+      document.body.appendChild(box);
+      const img = box.querySelector("img"), scroller = box.querySelector(".lb-scroll");
+      img.src = link.getAttribute("href"); img.alt = link.querySelector("img").alt;
+      function open(e) { e.preventDefault(); box.hidden = false; document.body.style.overflow = "hidden"; history.pushState({ lb: 1 }, ""); box.querySelector(".lb-close").focus(); }
+      function close() { if (box.hidden) return; box.hidden = true; box.classList.remove("zoom"); document.body.style.overflow = ""; link.focus(); }
+      link.addEventListener("click", open);
+      box.querySelector(".lb-close").addEventListener("click", () => history.back());
+      box.addEventListener("click", (e) => { if (e.target === box || e.target === scroller) history.back(); });
+      img.addEventListener("click", (e) => {
+        const r = img.getBoundingClientRect(), fx = (e.clientX - r.left) / r.width, fy = (e.clientY - r.top) / r.height;
+        box.classList.toggle("zoom");
+        if (box.classList.contains("zoom")) { scroller.scrollLeft = fx * img.offsetWidth - scroller.clientWidth / 2; scroller.scrollTop = fy * img.offsetHeight - scroller.clientHeight / 2; }
+      });
+      addEventListener("popstate", close);
+      addEventListener("keydown", (e) => { if (e.key === "Escape" && !box.hidden) history.back(); });
+    })();
     
   </script>
 </body>
