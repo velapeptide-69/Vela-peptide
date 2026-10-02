@@ -111,7 +111,7 @@ document.getElementById("quoteForm").addEventListener("submit", (e) => {
   e.preventDefault();
   const f = new FormData(e.target);
   const body = `Hello Vela Peptide, I need a quote.\nName: ${f.get("name")}\nPhone: ${f.get("phone")}\nSpecies: ${f.get("species")}\n\n${f.get("message")}`;
-  window.open(`https://wa.me/919196699969?text=${encodeURIComponent(body)}`, "_blank");
+  window.open(`https://wa.me/919156699969?text=${encodeURIComponent(body)}`, "_blank");
   document.getElementById("formNote").textContent = "Thanks! WhatsApp will open with your enquiry. Just tap Send.";
 });
 
