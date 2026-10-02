@@ -8,8 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Exo+2:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="preload" as="image" href="public/hero-art.webp" />
-  <link rel="stylesheet" href="styles.css?v=19" />
+  <link rel="stylesheet" href="styles.css?v=20" />
 </head>
 <body class="fx">
   <!-- SVG icon sprite -->
@@ -67,15 +66,46 @@
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="bubbles" id="bubbles" aria-hidden="true"></div>
 
-    <div class="hero-stage">
-      <div class="hero-art">
-        <img src="public/hero-art.webp" alt="Tilapia fish inside a glowing DNA helix, surrounded by Peptides, Enzymes, Immunostimulants, Vitamins &amp; Minerals, Probiotics &amp; Prebiotics and Functional Additives" />
-        <a href="#products" class="hotspot" style="left:13.2%;top:21.6%" aria-label="Peptides"></a>
-        <a href="#products" class="hotspot" style="left:8.9%;top:52.2%" aria-label="Enzymes"></a>
-        <a href="#products" class="hotspot" style="left:20%;top:80.2%" aria-label="Immunostimulants"></a>
-        <a href="#products" class="hotspot" style="left:74.3%;top:21.6%" aria-label="Vitamins &amp; Minerals"></a>
-        <a href="#products" class="hotspot" style="left:89.5%;top:54.7%" aria-label="Probiotics &amp; Prebiotics"></a>
-        <a href="#products" class="hotspot" style="left:77.4%;top:80.2%" aria-label="Functional Additives"></a>
+    <div class="slider" id="heroSlider" role="region" aria-roledescription="carousel" aria-label="Vela Peptide highlights" tabindex="0">
+      <div class="slides">
+        <a class="slide is-active" href="#products" aria-label="Slide 1 of 7: view products">
+          <img src="public/slide-1.webp" srcset="public/slide-1-768.webp 768w, public/slide-1.webp 1536w" sizes="100vw" width="1536" height="372" fetchpriority="high" alt="Advanced nutrition for healthier and faster growing fish: tilapia and shrimp in glowing water with faster growth, stronger immunity and better feed conversion" />
+        </a>
+        <a class="slide" href="#products" aria-label="Slide 2 of 7: view products" tabindex="-1" aria-hidden="true">
+          <img src="public/slide-2.webp" srcset="public/slide-2-768.webp 768w, public/slide-2.webp 1536w" sizes="100vw" width="1536" height="372" loading="lazy" decoding="async" alt="Nutrition that creates stronger generations: fish and shrimp in green light with better growth, stronger immunity, higher feed conversion and healthier aquatic life" />
+        </a>
+        <a class="slide" href="#products" aria-label="Slide 3 of 7: view products" tabindex="-1" aria-hidden="true">
+          <img src="public/slide-3.webp" srcset="public/slide-3-768.webp 768w, public/slide-3.webp 1536w" sizes="100vw" width="1536" height="372" loading="lazy" decoding="async" alt="Science nutrition for a healthier aquatic tomorrow: fish on a glowing platform surrounded by peptides, enzymes, probiotics, vitamins and immunostimulants" />
+        </a>
+        <a class="slide" href="#products" aria-label="Slide 4 of 7: view products" tabindex="-1" aria-hidden="true">
+          <img src="public/slide-4.webp" srcset="public/slide-4-768.webp 768w, public/slide-4.webp 1536w" sizes="100vw" width="1536" height="372" loading="lazy" decoding="async" alt="Tilapia inside a glowing green DNA helix surrounded by peptides, enzymes, immunostimulants, vitamins and minerals, probiotics and functional additives" />
+        </a>
+        <a class="slide" href="#products" aria-label="Slide 5 of 7: view products" tabindex="-1" aria-hidden="true">
+          <img src="public/slide-5.webp" srcset="public/slide-5-768.webp 768w, public/slide-5.webp 1536w" sizes="100vw" width="1536" height="372" loading="lazy" decoding="async" alt="Science nutrition for a healthier aquatic tomorrow: fish in a DNA helix with product orbs and fish farm cages at sunrise" />
+        </a>
+        <a class="slide" href="#products" aria-label="Slide 6 of 7: view products" tabindex="-1" aria-hidden="true">
+          <img src="public/slide-6.webp" srcset="public/slide-6-768.webp 768w, public/slide-6.webp 1536w" sizes="100vw" width="1536" height="372" loading="lazy" decoding="async" alt="Fish in a glowing DNA helix with peptides, enzymes, vitamins and minerals, probiotics and functional additives beside a globe for sustainable aquaculture" />
+        </a>
+        <a class="slide" href="#products" aria-label="Slide 7 of 7: view products" tabindex="-1" aria-hidden="true">
+          <img src="public/slide-7.webp" srcset="public/slide-7-768.webp 768w, public/slide-7.webp 1536w" sizes="100vw" width="1536" height="372" loading="lazy" decoding="async" alt="Fish and shrimp rising from a glowing platform inside a DNA helix, with product orbs and a globe for sustainable aquaculture" />
+        </a>
+      </div>
+      <div class="sl-grid" aria-hidden="true"></div>
+      <span class="sl-scan" aria-hidden="true"></span>
+      <span class="sl-corner tl" aria-hidden="true"></span><span class="sl-corner tr" aria-hidden="true"></span><span class="sl-corner bl" aria-hidden="true"></span><span class="sl-corner br" aria-hidden="true"></span>
+      <button class="sl-nav prev" type="button" aria-label="Previous slide"><svg><use href="#i-arrow"/></svg></button>
+      <button class="sl-nav next" type="button" aria-label="Next slide"><svg><use href="#i-arrow"/></svg></button>
+      <div class="sl-bar">
+        <span class="sl-count"><b id="slNow">01</b> / 07</span>
+        <div class="sl-dots">
+          <button class="sl-dot is-active" type="button" aria-label="Show slide 1" aria-current="true"><span></span></button>
+          <button class="sl-dot" type="button" aria-label="Show slide 2"><span></span></button>
+          <button class="sl-dot" type="button" aria-label="Show slide 3"><span></span></button>
+          <button class="sl-dot" type="button" aria-label="Show slide 4"><span></span></button>
+          <button class="sl-dot" type="button" aria-label="Show slide 5"><span></span></button>
+          <button class="sl-dot" type="button" aria-label="Show slide 6"><span></span></button>
+          <button class="sl-dot" type="button" aria-label="Show slide 7"><span></span></button>
+        </div>
       </div>
     </div>
 
@@ -243,6 +273,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=19"></script>
+  <script src="script.js?v=20"></script>
 </body>
 </html>

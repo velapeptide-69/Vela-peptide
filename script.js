@@ -116,3 +116,71 @@ document.getElementById("quoteForm").addEventListener("submit", (e) => {
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();
+
+// Hero slider: futuristic wipe with a scan line, auto-plays every 6 s
+(function () {
+  const root = document.getElementById("heroSlider");
+  if (!root) return;
+  const slides = [...root.querySelectorAll(".slide")];
+  const dots = [...root.querySelectorAll(".sl-dot")];
+  const now = document.getElementById("slNow");
+  const DELAY = 6000;
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let index = 0, timer = null, paused = false;
+  root.style.setProperty("--sl-time", DELAY + "ms");
+  if (reduce) root.classList.add("static");
+
+  function show(next, dir) {
+    next = (next + slides.length) % slides.length;
+    if (next === index) return;
+    const prev = slides[index];
+    root.dataset.dir = dir;
+    slides.forEach((s) => s.classList.remove("is-leaving"));
+    prev.classList.remove("is-active");
+    prev.classList.add("is-leaving");
+    prev.setAttribute("aria-hidden", "true"); prev.tabIndex = -1;
+    const cur = slides[next];
+    cur.classList.add("is-active");
+    cur.removeAttribute("aria-hidden"); cur.removeAttribute("tabindex");
+    dots.forEach((d, i) => {
+      d.classList.toggle("is-active", i === next);
+      if (i === next) d.setAttribute("aria-current", "true"); else d.removeAttribute("aria-current");
+    });
+    // restart the progress bar and the scan line
+    const bar = dots[next].firstElementChild; bar.style.animation = "none"; void bar.offsetWidth; bar.style.animation = "";
+    root.classList.remove("scanning"); void root.offsetWidth; root.classList.add("scanning");
+    setTimeout(() => prev.classList.remove("is-leaving"), reduce ? 0 : 1100);
+    index = next;
+    if (now) now.textContent = String(next + 1).padStart(2, "0");
+    restart();
+  }
+  function restart() {
+    clearTimeout(timer);
+    if (!reduce && !paused) timer = setTimeout(() => show(index + 1, "next"), DELAY);
+  }
+  function pause(p) { paused = p; root.classList.toggle("paused", p); if (p) clearTimeout(timer); else restart(); }
+
+  root.querySelector(".sl-nav.next").addEventListener("click", () => show(index + 1, "next"));
+  root.querySelector(".sl-nav.prev").addEventListener("click", () => show(index - 1, "prev"));
+  dots.forEach((d, i) => d.addEventListener("click", () => show(i, i > index ? "next" : "prev")));
+  root.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") show(index + 1, "next");
+    if (e.key === "ArrowLeft") show(index - 1, "prev");
+  });
+  root.addEventListener("mouseenter", () => pause(true));
+  root.addEventListener("mouseleave", () => pause(false));
+  root.addEventListener("focusin", () => pause(true));
+  root.addEventListener("focusout", (e) => { if (!root.contains(e.relatedTarget)) pause(false); });
+  document.addEventListener("visibilitychange", () => pause(document.hidden));
+
+  // swipe on touch screens
+  let x0 = null;
+  root.addEventListener("touchstart", (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+  root.addEventListener("touchend", (e) => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 40) show(index + (dx < 0 ? 1 : -1), dx < 0 ? "next" : "prev");
+  });
+
+  restart();
+})();
