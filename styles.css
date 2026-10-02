@@ -635,8 +635,10 @@ body.fx { background: #03130f; }
 }
 
 /* Glass header and footer over the photo background */
-.fx .site-header { background: rgba(3, 20, 16, .45); -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%); }
+.fx .site-header { background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; transition: background .35s, backdrop-filter .35s, box-shadow .35s; }
+.fx .site-header .main-nav a, .fx .site-header .icon-btn { text-shadow: 0 1px 6px rgba(0, 0, 0, .7); }
+.fx .site-header.scrolled { background: rgba(3, 20, 16, .45); -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%); box-shadow: 0 8px 24px rgba(0, 0, 0, .3); }
 .fx .site-footer { background: rgba(3, 20, 16, .45); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
 .fx .hero-bg { opacity: .35; }
 .fx .pc-head { background: rgba(0, 0, 0, .12); }
-@media (max-width: 820px) { .fx .site-header { background: rgba(3, 20, 16, .68); } }
+@media (max-width: 820px) { .fx .site-header.scrolled { background: rgba(3, 20, 16, .68); } }

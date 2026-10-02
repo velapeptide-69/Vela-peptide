@@ -59,3 +59,14 @@
   box.addEventListener("click", (e) => { if (e.target === box) close(); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
 })();
+
+// Header: fully transparent at the top of the page, frosted glass once the page scrolls
+(function () {
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+  const update = () => header.classList.toggle("scrolled", scrollY > 10 || document.querySelector(".main-nav.open") !== null);
+  addEventListener("scroll", update, { passive: true });
+  document.addEventListener("click", () => setTimeout(update, 0));
+  update();
+})();
+
