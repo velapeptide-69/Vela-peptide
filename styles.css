@@ -483,8 +483,8 @@ body.fx::before {
     linear-gradient(rgba(34, 216, 230, .045) 1px, transparent 1px) 0 0 / 46px 46px,
     linear-gradient(90deg, rgba(34, 216, 230, .045) 1px, transparent 1px) 0 0 / 46px 46px,
     radial-gradient(ellipse 60% 40% at 15% 0%, rgba(34, 216, 230, .14), transparent 70%),
-    linear-gradient(180deg, rgba(2, 16, 14, .55), rgba(2, 14, 12, .72)),
-    url("public/hero-underwater.webp") center / cover no-repeat;
+    linear-gradient(180deg, rgba(2, 16, 14, .45), rgba(2, 14, 12, .65)),
+    url("public/bg-sphere.webp") center 35% / cover no-repeat;
 }
 body.fx .products, body.fx .info, body.fx .contact, body.fx .species { background: transparent; }
 body.fx .species .waterline { opacity: .5; }
