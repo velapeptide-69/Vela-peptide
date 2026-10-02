@@ -106,13 +106,13 @@ document.getElementById("modalClose").addEventListener("click", () => (modal.hid
 modal.addEventListener("click", (e) => { if (e.target === modal) modal.hidden = true; });
 document.addEventListener("keydown", (e) => { if (e.key === "Escape") modal.hidden = true; });
 
-// Quote form -> opens user's email client
+// Quote form -> opens WhatsApp with the enquiry filled in
 document.getElementById("quoteForm").addEventListener("submit", (e) => {
   e.preventDefault();
   const f = new FormData(e.target);
-  const body = `Name: ${f.get("name")}\nPhone: ${f.get("phone")}\nEmail: ${f.get("email")}\nSpecies: ${f.get("species")}\n\n${f.get("message")}`;
-  window.location.href = `mailto:velapeptide@gmail.com?subject=${encodeURIComponent("Quote request – " + f.get("species"))}&body=${encodeURIComponent(body)}`;
-  document.getElementById("formNote").textContent = "Thanks! Your email app should open to send the enquiry.";
+  const body = `Hello Vela Peptide, I need a quote.\nName: ${f.get("name")}\nPhone: ${f.get("phone")}\nSpecies: ${f.get("species")}\n\n${f.get("message")}`;
+  window.open(`https://wa.me/919196699969?text=${encodeURIComponent(body)}`, "_blank");
+  document.getElementById("formNote").textContent = "Thanks! WhatsApp will open with your enquiry. Just tap Send.";
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();

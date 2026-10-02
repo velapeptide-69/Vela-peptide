@@ -89,7 +89,7 @@ svg { width: 1em; height: 1em; }
   background:
     radial-gradient(ellipse at 50% 35%, rgba(40, 200, 120, .18), transparent 55%),
     linear-gradient(180deg, rgba(3, 25, 18, .7) 0%, rgba(3, 22, 15, .55) 40%, rgba(4, 21, 15, .97) 100%),
-    url("public/hero-underwater.jpg") center 30% / cover no-repeat;
+    url("public/hero-underwater.webp") center 30% / cover no-repeat;
   filter: saturate(1.1) hue-rotate(-8deg) blur(2px);
   transform: scale(1.04);
 }
@@ -145,7 +145,7 @@ svg { width: 1em; height: 1em; }
 .journey {
   position: relative; flex-shrink: 0; width: 290px; height: 80px; border-radius: 10px; overflow: hidden;
   display: flex; align-items: center; justify-content: center; gap: 14px; text-align: left;
-  background: linear-gradient(90deg, rgba(0,0,0,.1), rgba(0,0,0,.45)), url("public/hero-underwater.jpg") center 18% / cover;
+  background: linear-gradient(90deg, rgba(0,0,0,.1), rgba(0,0,0,.45)), url("public/hero-underwater.webp") center 18% / cover;
   border: 1px solid rgba(255,255,255,.2);
 }
 .journey-play {
@@ -217,7 +217,7 @@ h2 { font-size: clamp(26px, 3vw, 36px); font-weight: 700; letter-spacing: -.5px;
   position: relative; padding: 40px 0 30px;
   background:
     linear-gradient(180deg, rgba(6, 34, 25, .78), rgba(4, 21, 15, .95)),
-    url("public/hero-underwater.jpg") center 85% / cover;
+    url("public/hero-underwater.webp") center 85% / cover;
 }
 .waterline {
   position: absolute; left: 0; right: 0; top: 0; height: 26px;
@@ -293,6 +293,11 @@ h2 { font-size: clamp(26px, 3vw, 36px); font-weight: 700; letter-spacing: -.5px;
 .modal-close { position: absolute; top: 8px; right: 12px; font-size: 32px; line-height: 1; z-index: 1; text-shadow: 0 0 6px #000; }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 1640px) {
+  .header-inner { gap: 18px; }
+  .header-actions { gap: 10px; }
+  .header-actions .divider, .lang-btn { display: none; }
+}
 @media (max-width: 1280px) {
   .main-nav a { padding: 9px 10px; font-size: 14px; }
   .product-grid .product-card { flex-basis: calc((100% - 28px) / 3); }
@@ -301,7 +306,7 @@ h2 { font-size: clamp(26px, 3vw, 36px); font-weight: 700; letter-spacing: -.5px;
   .science { border-left: 0; padding: 0; letter-spacing: 4px; }
   .journey { flex: 1 1 260px; }
 }
-@media (max-width: 1080px) {
+@media (max-width: 1420px) {
   .main-nav {
     display: none; position: absolute; top: 92px; left: 0; right: 0;
     flex-direction: column; padding: 12px 16px 20px; background: rgba(3, 20, 13, .98);
@@ -392,6 +397,11 @@ h2 { font-size: clamp(26px, 3vw, 36px); font-weight: 700; letter-spacing: -.5px;
 .soc-wa:hover { background: #25d366; border-color: #25d366; color: #fff; }
 .soc-ig:hover { background: linear-gradient(45deg, #f9a825, #e1306c, #833ab4); border-color: transparent; color: #fff; }
 .footer-inner { align-items: center; padding-right: 96px; }
+.hdr-soc { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; color: #fff; flex-shrink: 0; transition: transform .2s, box-shadow .2s; }
+.hdr-soc svg { width: 20px; height: 20px; }
+.hdr-wa { background: #25d366; }
+.hdr-ig { background: linear-gradient(45deg, #f9a825, #e1306c, #833ab4); }
+.hdr-soc:hover { transform: translateY(-2px); box-shadow: 0 0 14px rgba(255,255,255,.25); }
 @media (max-width: 560px) { .footer-inner { padding-right: 0; } .site-footer { padding-bottom: 92px; } }
 .contact-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
 .contact-btns svg { width: 20px; height: 20px; }
