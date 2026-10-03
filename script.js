@@ -40,11 +40,11 @@ window.addEventListener("scroll", setActive, { passive: true });
   const rungs = document.createElementNS(ns, "g");
   [strandA, strandB].forEach((p) => {
     p.setAttribute("fill", "none");
-    p.setAttribute("stroke", "#7dff5a");
+    p.setAttribute("stroke", "#3deb4f");
     p.setAttribute("stroke-width", "7");
     p.setAttribute("stroke-linecap", "round");
   });
-  rungs.setAttribute("stroke", "#9dff7a");
+  rungs.setAttribute("stroke", "#3deb4f");
   rungs.setAttribute("stroke-width", "3");
   rungs.setAttribute("opacity", ".85");
   svg.append(rungs, strandA, strandB);
