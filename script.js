@@ -210,3 +210,28 @@ document.getElementById("year").textContent = new Date().getFullYear();
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !box.hidden) close(); });
 })();
 
+
+// Product cards: spotlight each card's image in turn, in the owner's chosen order
+(function () {
+  const ORDER = ["immunity", "organic-acids", "functional", "nucleotides", "probiotics", "peptides", "vitamins", "enzymes", "amino-acids"];
+  const grid = document.querySelector(".product-grid");
+  if (!grid || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const cards = ORDER.map((n) => grid.querySelector('.product-card[href="' + n + '.html"]')).filter(Boolean);
+  if (!cards.length) return;
+  let i = 0, timer = null, paused = false, visible = false;
+  function step() {
+    cards.forEach((c) => c.classList.remove("spot"));
+    if (paused || !visible) return;
+    const c = cards[i % cards.length];
+    void c.offsetWidth; c.classList.add("spot");
+    i++;
+  }
+  function start() { clearInterval(timer); step(); timer = setInterval(step, 1400); }
+  function stop() { clearInterval(timer); cards.forEach((c) => c.classList.remove("spot")); }
+  grid.addEventListener("mouseenter", () => { paused = true; stop(); });
+  grid.addEventListener("mouseleave", () => { paused = false; if (visible) start(); });
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver((es) => es.forEach((e) => { visible = e.isIntersecting; if (visible && !paused) start(); else stop(); }), { threshold: 0.2 }).observe(grid);
+  } else { visible = true; start(); }
+  document.addEventListener("visibilitychange", () => { if (document.hidden) stop(); else if (visible && !paused) start(); });
+})();
