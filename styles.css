@@ -805,7 +805,7 @@ html.vp-hide body { visibility: hidden; }
 .promo-box { isolation: isolate; overflow: hidden; }
 .promo-box > :not(.promo-star):not(.promo-close) { position: relative; z-index: 1; }
 .promo-star {
-  position: absolute; z-index: 0; left: 50%; top: 50%; width: 125%; height: auto; max-width: 640px; aspect-ratio: 1;
+  position: absolute; z-index: 0; left: 50%; top: 50%; width: auto; height: calc(100% - 24px); max-width: calc(100% - 24px); aspect-ratio: 1;
   transform: translate(-50%, -50%); opacity: .3; pointer-events: none;
   filter: drop-shadow(0 0 8px rgba(212, 167, 74, .8)); animation: star-spin 60s linear infinite;
 }
