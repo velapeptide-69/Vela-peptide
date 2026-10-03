@@ -230,29 +230,4 @@ document.getElementById("year").textContent = new Date().getFullYear();
   document.addEventListener("visibilitychange", () => { if (document.hidden) stop(); else if (visible && !paused) start(); });
 })();
 
-// Fish species: open the "make your own feed" list for the tapped fish
-(function () {
-  const box = document.getElementById("feedBox");
-  if (!box) return;
-  const fishName = document.getElementById("feedFish"), img = document.getElementById("feedImg");
-  const wa = document.getElementById("feedWa");
-  let opener = null;
-  function open(e) {
-    e.preventDefault();
-    const a = e.currentTarget, name = a.dataset.fish;
-    fishName.textContent = name;
-    box.querySelectorAll(".feed-fish2").forEach((s) => (s.textContent = name));
-    img.src = a.dataset.img; img.alt = name;
-    wa.href = "https://wa.me/919156699969?text=" + encodeURIComponent("Hello Vela Peptide, I want to make my own " + name + " feed. Please share the formulation and additives.");
-    opener = a; box.hidden = false; document.body.style.overflow = "hidden";
-    document.getElementById("feedClose").focus();
-  }
-  function close() { if (box.hidden) return; box.hidden = true; document.body.style.overflow = ""; if (opener) opener.focus(); }
-  document.querySelectorAll(".fish[data-fish]").forEach((a) => a.addEventListener("click", open));
-  document.getElementById("feedClose").addEventListener("click", close);
-  document.getElementById("feedProducts").addEventListener("click", close);
-  box.querySelectorAll(".feed-add a, #feedWa").forEach((a) => a.addEventListener("click", close));
-  box.addEventListener("click", (e) => { if (e.target === box) close(); });
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
-})();
 

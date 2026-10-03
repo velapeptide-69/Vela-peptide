@@ -10,7 +10,13 @@
     { t: "Organic Acids", u: "organic-acids.html", k: "organic acid acidifier formic lactic citric propionic acetic butyric ph gut preservation" },
     { t: "Amino Acids", u: "amino-acids.html", k: "amino acid lysine methionine threonine tryptophan isoleucine leucine valine phenylalanine histidine alanine arginine asparagine aspartic cysteine glutamic glutamine glycine proline serine tyrosine muscle growth gut" },
     { t: "Nucleotides", u: "nucleotides.html", k: "nucleotide amp gmp cmp ump imp cell growth recovery dna rna gut" },
-    { t: "Fish species: Catla, Rohu, Tilapia, Pangasius, Shrimp, Carp, Seabass", u: "index.html#applications", k: "fish species catla rohu mrigal tilapia pangasius shrimp prawn carp seabass" },
+    { t: "Catla feed – अपना Feed खुद बनाएं", u: "feed-catla.html", k: "catla कतला fish species feed make own diy soybean mustard rice bran maize wheat fish meal" },
+    { t: "Rohu feed – अपना Feed खुद बनाएं", u: "feed-rohu.html", k: "rohu रोहू fish species feed make own diy soybean mustard rice bran maize wheat fish meal" },
+    { t: "Tilapia feed – अपना Feed खुद बनाएं", u: "feed-tilapia.html", k: "tilapia तिलापिया fish species feed make own diy soybean mustard rice bran maize wheat fish meal" },
+    { t: "Pangasius feed – अपना Feed खुद बनाएं", u: "feed-pangasius.html", k: "pangasius पंगासियस fish species feed make own diy soybean mustard rice bran maize wheat fish meal" },
+    { t: "Shrimp feed – अपना Feed खुद बनाएं", u: "feed-shrimp.html", k: "shrimp झींगा prawn fish species feed make own diy soybean mustard rice bran maize wheat fish meal" },
+    { t: "Carp feed – अपना Feed खुद बनाएं", u: "feed-carp.html", k: "carp कार्प mrigal fish species feed make own diy soybean mustard rice bran maize wheat fish meal" },
+    { t: "Seabass feed – अपना Feed खुद बनाएं", u: "feed-seabass.html", k: "seabass सीबास fish species feed make own diy soybean mustard rice bran maize wheat fish meal" },
     { t: "Get a quote on WhatsApp", u: "https://wa.me/919156699969?text=Hello%20Vela%20Peptide%2C%20I%20need%20a%20quote.", k: "quote price contact whatsapp call order buy enquiry rate" },
   ];
   const btns = document.querySelectorAll(".search-btn");

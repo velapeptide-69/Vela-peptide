@@ -754,3 +754,17 @@ html.vp-hide body { visibility: hidden; }
   .feed-head { flex-direction: column; align-items: flex-start; gap: 6px; }
   .feed-head img { width: 120px; }
 }
+
+/* Fish feed pages */
+.fish-hero { flex-direction: row; align-items: center; justify-content: space-between; gap: 24px; }
+.fish-hero .hi { font-size: .6em; color: #7df06a; -webkit-text-fill-color: #7df06a; }
+.fish-hero-img { width: min(420px, 45%); aspect-ratio: 2 / 1; object-fit: cover; -webkit-mask-image: radial-gradient(ellipse 50% 48% at 50% 50%, #000 55%, transparent 100%); mask-image: radial-gradient(ellipse 50% 48% at 50% 50%, #000 55%, transparent 100%); }
+.feed-page { grid-template-columns: 1fr 1fr; }
+.feed-page .feed-raw b, .feed-page .feed-add a { font-size: 16px; }
+.pp > .container > .feed-note { margin: 0 0 20px; }
+.other-fish { margin-bottom: 20px; }
+.other-fish .sp-list { grid-template-columns: repeat(6, 1fr); }
+.other-fish .sp-list a { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.other-fish .sp-list a:hover span { color: var(--cyan); }
+@media (max-width: 900px) { .feed-page { grid-template-columns: 1fr; } .other-fish .sp-list { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px) { .fish-hero { flex-direction: column-reverse; align-items: flex-start; } .fish-hero-img { width: 80%; align-self: center; } }
