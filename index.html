@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Exo+2:wght@600;700;800&family=Hind:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=37" />
+  <link rel="stylesheet" href="styles.css?v=39" />
   <script src="protect.js?v=3" defer></script>
 </head>
 <body class="fx">
@@ -190,13 +190,13 @@
   <section class="species" id="applications">
     <div class="waterline" aria-hidden="true"></div>
     <div class="species-row">
-      <a class="fish" href="#contact" data-fish="Catla" data-img="public/fish-catla.webp" aria-haspopup="dialog"><img loading="lazy" decoding="async" src="public/fish-catla.webp" alt="Catla" /><span>Catla <i><svg><use href="#i-arrow"/></svg></i></span></a>
-      <a class="fish" href="#contact" data-fish="Rohu" data-img="public/fish-rohu.webp" aria-haspopup="dialog"><img loading="lazy" decoding="async" src="public/fish-rohu.webp" alt="Rohu" /><span>Rohu <i><svg><use href="#i-arrow"/></svg></i></span></a>
-      <a class="fish" href="#contact" data-fish="Tilapia" data-img="public/fish-tilapia.webp" aria-haspopup="dialog"><img loading="lazy" decoding="async" src="public/fish-tilapia.webp" alt="Tilapia" /><span>Tilapia <i><svg><use href="#i-arrow"/></svg></i></span></a>
-      <a class="fish" href="#contact" data-fish="Pangasius" data-img="public/fish-pangasius.webp" aria-haspopup="dialog"><img loading="lazy" decoding="async" src="public/fish-pangasius.webp" alt="Pangasius" /><span>Pangasius <i><svg><use href="#i-arrow"/></svg></i></span></a>
-      <a class="fish" href="#contact" data-fish="Shrimp" data-img="public/fish-shrimp.webp" aria-haspopup="dialog"><img loading="lazy" decoding="async" src="public/fish-shrimp.webp" alt="Shrimp" /><span>Shrimp <i><svg><use href="#i-arrow"/></svg></i></span></a>
-      <a class="fish" href="#contact" data-fish="Carp" data-img="public/fish-carp.webp" aria-haspopup="dialog"><img loading="lazy" decoding="async" src="public/fish-carp.webp" alt="Carp" /><span>Carp <i><svg><use href="#i-arrow"/></svg></i></span></a>
-      <a class="fish" href="#contact" data-fish="Seabass" data-img="public/fish-seabass.webp" aria-haspopup="dialog"><img loading="lazy" decoding="async" src="public/fish-seabass.webp" alt="Seabass" /><span>Seabass <i><svg><use href="#i-arrow"/></svg></i></span></a>
+      <a class="fish" href="feed-catla.html"><img loading="lazy" decoding="async" src="public/fish-catla.webp" alt="Catla" /><span>Catla <i><svg><use href="#i-arrow"/></svg></i></span></a>
+      <a class="fish" href="feed-rohu.html"><img loading="lazy" decoding="async" src="public/fish-rohu.webp" alt="Rohu" /><span>Rohu <i><svg><use href="#i-arrow"/></svg></i></span></a>
+      <a class="fish" href="feed-tilapia.html"><img loading="lazy" decoding="async" src="public/fish-tilapia.webp" alt="Tilapia" /><span>Tilapia <i><svg><use href="#i-arrow"/></svg></i></span></a>
+      <a class="fish" href="feed-pangasius.html"><img loading="lazy" decoding="async" src="public/fish-pangasius.webp" alt="Pangasius" /><span>Pangasius <i><svg><use href="#i-arrow"/></svg></i></span></a>
+      <a class="fish" href="feed-shrimp.html"><img loading="lazy" decoding="async" src="public/fish-shrimp.webp" alt="Shrimp" /><span>Shrimp <i><svg><use href="#i-arrow"/></svg></i></span></a>
+      <a class="fish" href="feed-carp.html"><img loading="lazy" decoding="async" src="public/fish-carp.webp" alt="Carp" /><span>Carp <i><svg><use href="#i-arrow"/></svg></i></span></a>
+      <a class="fish" href="feed-seabass.html"><img loading="lazy" decoding="async" src="public/fish-seabass.webp" alt="Seabass" /><span>Seabass <i><svg><use href="#i-arrow"/></svg></i></span></a>
     </div>
   </section>
 
@@ -262,53 +262,6 @@
     </div>
   </footer>
 
-  <!-- Make your own feed: opens from each fish -->
-  <div class="feed" id="feedBox" role="dialog" aria-modal="true" aria-labelledby="feedTitle" hidden>
-    <div class="feed-box">
-      <button class="feed-close" id="feedClose" type="button" aria-label="Close">&times;</button>
-      <div class="feed-head">
-        <img id="feedImg" alt="" />
-        <div>
-          <p class="feed-tag">अपना Feed खुद बनाएं</p>
-          <h2 id="feedTitle"><span id="feedFish">Fish</span> Feed</h2>
-          <p class="feed-sub">घर पर अपना feed तैयार करें — सही कच्चा माल + Vela Peptide additives</p>
-        </div>
-      </div>
-      <div class="feed-cols">
-        <section>
-          <h3>1. कच्चा माल (Raw materials)</h3>
-          <ul class="feed-raw">
-            <li><b>Soybean meal / DOC</b><span>सोयाबीन खली — प्रोटीन का मुख्य स्रोत</span></li>
-            <li><b>Mustard cake (Sarso khali)</b><span>सरसों खली — प्रोटीन और ऊर्जा</span></li>
-            <li><b>Rice bran / DORB</b><span>चावल की भूसी — ऊर्जा और फाइबर</span></li>
-            <li><b>Corn / Maize</b><span>मक्का — ऊर्जा (कार्बोहाइड्रेट)</span></li>
-            <li><b>Wheat bran / Rice polish</b><span>गेहूं चोकर / राइस पॉलिश — ऊर्जा और फाइबर</span></li>
-            <li><b>Fish meal / Meat-chicken meal</b><span>फिश मील / मीट-चिकन मील — उच्च प्रोटीन</span></li>
-          </ul>
-        </section>
-        <section>
-          <h3>2. Vela Peptide Additives</h3>
-          <ul class="feed-add">
-            <li><a href="peptides.html">Peptides & Proteins</a></li>
-            <li><a href="amino-acids.html">Amino Acids</a></li>
-            <li><a href="enzymes.html">Enzymes</a></li>
-            <li><a href="probiotics.html">Probiotics & Prebiotics</a></li>
-            <li><a href="vitamins.html">Vitamins & Minerals</a></li>
-            <li><a href="functional.html">Functional Additives (Chelated Minerals)</a></li>
-            <li><a href="organic-acids.html">Organic Acids</a></li>
-            <li><a href="nucleotides.html">Nucleotides</a></li>
-            <li><a href="immunity.html">Immunostimulants</a></li>
-          </ul>
-        </section>
-      </div>
-      <p class="feed-note">मात्रा (%) मछली की उम्र, तालाब और कच्चे माल की quality पर निर्भर करती है। अपनी <span class="feed-fish2">मछली</span> के लिए सही formulation हमसे WhatsApp पर पूछें।</p>
-      <div class="feed-actions">
-        <a class="btn btn-wa" id="feedWa" href="https://wa.me/919156699969" target="_blank" rel="noopener">WhatsApp पर Formulation पूछें</a>
-        <a class="btn btn-outline" href="#products" id="feedProducts">सभी Products</a>
-      </div>
-    </div>
-  </div>
-
   <!-- Welcome popup -->
   <div class="promo" id="promo" role="dialog" aria-modal="true" aria-labelledby="promoTitle" hidden>
     <div class="promo-box">
@@ -327,7 +280,7 @@
     </div>
   </div>
 
-  <script src="script.js?v=37"></script>
-  <script src="search.js?v=26"></script>
+  <script src="script.js?v=38"></script>
+  <script src="search.js?v=38"></script>
 </body>
 </html>

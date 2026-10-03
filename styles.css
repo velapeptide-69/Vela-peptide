@@ -640,11 +640,11 @@ body.fx { background: #03130f; }
 /* Glass header and footer over the photo background */
 .fx .site-header { background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; transition: background .35s, backdrop-filter .35s, box-shadow .35s; }
 .fx .site-header .main-nav a, .fx .site-header .icon-btn { text-shadow: 0 1px 6px rgba(0, 0, 0, .7); }
-.fx .site-header.scrolled { background: rgba(3, 20, 16, .45); -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%); box-shadow: 0 8px 24px rgba(0, 0, 0, .3); }
+.fx .site-header.scrolled { background: rgba(3, 20, 16, .14); -webkit-backdrop-filter: blur(6px) saturate(130%); backdrop-filter: blur(6px) saturate(130%); box-shadow: none; }
 .fx .site-footer { background: rgba(3, 20, 16, .45); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
 .fx .hero-bg { opacity: .35; }
 .fx .pc-head { background: rgba(0, 0, 0, .12); }
-@media (max-width: 820px) { .fx .site-header.scrolled { background: rgba(3, 20, 16, .68); } }
+@media (max-width: 820px) { .fx .site-header.scrolled { background: rgba(3, 20, 16, .22); } }
 
 /* Content protection (deterrent) */
 html { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
@@ -754,3 +754,23 @@ html.vp-hide body { visibility: hidden; }
   .feed-head { flex-direction: column; align-items: flex-start; gap: 6px; }
   .feed-head img { width: 120px; }
 }
+
+/* Fish feed pages */
+.fish-hero { flex-direction: row; align-items: center; justify-content: space-between; gap: 24px; }
+.fish-hero .hi { font-size: .6em; color: #7df06a; -webkit-text-fill-color: #7df06a; }
+.fish-hero-img { width: min(420px, 45%); aspect-ratio: 2 / 1; object-fit: cover; -webkit-mask-image: radial-gradient(ellipse 50% 48% at 50% 50%, #000 55%, transparent 100%); mask-image: radial-gradient(ellipse 50% 48% at 50% 50%, #000 55%, transparent 100%); }
+.feed-page { grid-template-columns: 1fr 1fr; }
+.feed-page .feed-raw b, .feed-page .feed-add a { font-size: 16px; }
+.pp > .container > .feed-note { margin: 0 0 20px; }
+.other-fish { margin-bottom: 20px; }
+.other-fish .sp-list { grid-template-columns: repeat(6, 1fr); }
+.other-fish .sp-list a { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.other-fish .sp-list a:hover span { color: var(--cyan); }
+@media (max-width: 900px) { .feed-page { grid-template-columns: 1fr; } .other-fish .sp-list { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px) { .fish-hero { flex-direction: column-reverse; align-items: flex-start; } .fish-hero-img { width: 80%; align-self: center; } }
+
+/* Highly transparent header and benefits strip */
+.fx .site-header::after { opacity: .45; }
+.fx .hero .benefits { background: rgba(4, 24, 20, .12); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); box-shadow: none; }
+.fx .hero .benefits::before { opacity: .55; }
+.fx .hero .benefit, .fx .hero .science, .fx .site-header .main-nav a, .fx .site-header .icon-btn { text-shadow: 0 1px 4px rgba(0, 0, 0, .9), 0 0 10px rgba(0, 0, 0, .6); }
