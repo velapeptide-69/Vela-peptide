@@ -36,7 +36,7 @@
   const mark = '<span class="wm" aria-hidden="true"><span class="wm-pill"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M3 4h4.2l4.8 11.2L16.8 4H21l-7.4 16h-3.2z"/></svg>velapeptide.com</span></span>';
   const add = (el) => { if (el && !el.querySelector(":scope > .wm")) el.insertAdjacentHTML("beforeend", mark); };
   const run = () => {
-    document.querySelectorAll(".pc-img, .pp-banner > a, .slider, .research-card, .sp-list li").forEach(add);
+    document.querySelectorAll(".pc-img, .pp-banner > a, .slider, .sp-list li").forEach(add);
     const lb = document.querySelector(".lb");
     if (lb) add(lb);
   };
