@@ -109,7 +109,6 @@ document.getElementById("quoteForm").addEventListener("submit", (e) => {
   document.getElementById("formNote").textContent = "Thanks! WhatsApp will open with your enquiry. Just tap Send.";
 });
 
-document.getElementById("year").textContent = new Date().getFullYear();
 
 // Hero slider: futuristic wipe with a scan line, auto-plays every 6 s
 (function () {

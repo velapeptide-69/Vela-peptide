@@ -812,3 +812,10 @@ html.vp-hide body { visibility: hidden; }
 @keyframes star-pulse { 50% { filter: drop-shadow(0 0 16px rgba(243, 213, 138, 1)); transform: scale(1.06); } }
 .promo-close { z-index: 2; }
 @media (prefers-reduced-motion: reduce) { .promo-star, .promo-mark { animation: none; } }
+
+/* Footer fish row */
+.foot-fish { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; min-width: 0; }
+.foot-fish a { display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 11px; font-weight: 600; color: var(--muted); transition: transform .2s, color .2s; }
+.foot-fish img { width: 72px; height: 36px; object-fit: cover; -webkit-mask-image: radial-gradient(ellipse 50% 48% at 50% 50%, #000 55%, transparent 100%); mask-image: radial-gradient(ellipse 50% 48% at 50% 50%, #000 55%, transparent 100%); }
+.foot-fish a:hover { transform: translateY(-3px); color: var(--green); }
+@media (max-width: 560px) { .foot-fish { justify-content: center; width: 100%; } .foot-fish img { width: 60px; height: 30px; } }
