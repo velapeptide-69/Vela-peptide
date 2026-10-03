@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Exo+2:wght@600;700;800&family=Hind:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=43" />
+  <link rel="stylesheet" href="styles.css?v=45" />
   <script src="protect.js?v=6" defer></script>
 </head>
 <body class="fx">
@@ -266,6 +266,16 @@
   <div class="promo" id="promo" role="dialog" aria-modal="true" aria-labelledby="promoTitle" hidden>
     <div class="promo-box">
       <button class="promo-close" id="promoClose" type="button" aria-label="Close">&times;</button>
+      <svg class="promo-star" viewBox="-6 -6 212 212" aria-hidden="true">
+        <defs><linearGradient id="starGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3d58a"/><stop offset=".55" stop-color="#d4a74a"/><stop offset="1" stop-color="#8fe03a"/></linearGradient></defs>
+        <g fill="none" stroke="url(#starGrad)" stroke-width="3.2" stroke-linejoin="round">
+          <polygon points="100,12 176.2,144 23.8,144"/>
+          <polygon points="100,188 23.8,56 176.2,56"/>
+          <circle cx="100" cy="100" r="94" stroke-width="1" stroke-dasharray="3 6" opacity=".7"/>
+          <polygon points="100,56 138.1,78 138.1,122 100,144 61.9,122 61.9,78" stroke-width="1.2" opacity=".8"/>
+        </g>
+      </svg>
+      <svg class="promo-mark" viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="url(#starGrad)" stroke-width="10" stroke-linejoin="round"><polygon points="100,12 176.2,144 23.8,144"/><polygon points="100,188 23.8,56 176.2,56"/></g></svg>
       <p class="promo-tag">VELA PEPTIDE</p>
       <h2 class="promo-title" id="promoTitle"><span aria-hidden="true">🐟</span> अपना Fish Feed खुद बनाएं</h2>
       <p class="promo-text">अब तैयार Feed पर निर्भर रहने की जरूरत नहीं।<br />VELA PEPTIDE के advanced additives के साथ अपने fish feed को खुद तैयार करें।</p>
