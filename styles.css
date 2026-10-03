@@ -819,3 +819,6 @@ html.vp-hide body { visibility: hidden; }
 .foot-fish img { width: 72px; height: 36px; object-fit: cover; -webkit-mask-image: radial-gradient(ellipse 50% 48% at 50% 50%, #000 55%, transparent 100%); mask-image: radial-gradient(ellipse 50% 48% at 50% 50%, #000 55%, transparent 100%); }
 .foot-fish a:hover { transform: translateY(-3px); color: var(--green); }
 @media (max-width: 560px) { .foot-fish { justify-content: center; width: 100%; } .foot-fish img { width: 60px; height: 30px; } }
+
+.contact-grid.single { grid-template-columns: 1fr; max-width: 760px; text-align: center; }
+.contact-grid.single .eyebrow, .contact-grid.single .contact-btns { justify-content: center; }
