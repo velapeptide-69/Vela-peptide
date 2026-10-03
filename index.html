@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Exo+2:wght@600;700;800&family=Hind:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=32" />
+  <link rel="stylesheet" href="styles.css?v=33" />
   <script src="protect.js?v=2" defer></script>
 </head>
 <body class="fx">
@@ -122,10 +122,6 @@
         <div class="benefit"><svg><use href="#i-heart"/></svg><span>Healthier<br />Fish</span></div>
         <div class="benefit"><svg><use href="#i-leaf"/></svg><span>Sustainable<br />Aquaculture</span></div>
         <div class="science">Science<br />Driven<br />Solutions</div>
-        <button class="journey" id="journeyBtn">
-          <span class="journey-play"><svg><use href="#i-play"/></svg></span>
-          <span class="journey-text">Our Journey<br /><small>Watch Now</small></span>
-        </button>
       </div>
     </div>
   </section>
@@ -203,6 +199,25 @@
       <a class="fish" href="#contact"><img loading="lazy" decoding="async" src="public/fish-shrimp.webp" alt="Shrimp" /><span>Shrimp <i><svg><use href="#i-arrow"/></svg></i></span></a>
       <a class="fish" href="#contact"><img loading="lazy" decoding="async" src="public/fish-carp.webp" alt="Carp" /><span>Carp <i><svg><use href="#i-arrow"/></svg></i></span></a>
       <a class="fish" href="#contact"><img loading="lazy" decoding="async" src="public/fish-seabass.webp" alt="Seabass" /><span>Seabass <i><svg><use href="#i-arrow"/></svg></i></span></a>
+    </div>
+  </section>
+
+  <!-- ============ OUR JOURNEY VIDEO ============ -->
+  <section class="journey-sec" id="journey">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Our Journey</p>
+          <h2>See Vela Peptide in action</h2>
+        </div>
+        <p class="section-sub">A quick look at our science-driven additives for healthier, faster growing fish.</p>
+      </div>
+      <div class="video-frame">
+        <video controls playsinline muted preload="none" poster="public/our-journey-poster.webp" controlslist="nodownload noplaybackrate" disablepictureinpicture width="1280" height="720">
+          <source src="public/our-journey.mp4" type="video/mp4; codecs=avc1.640028" />
+          <source src="public/our-journey.webm" type="video/webm; codecs=vp9" />
+        </video>
+      </div>
     </div>
   </section>
 
@@ -295,16 +310,7 @@
     </div>
   </div>
 
-  <!-- Video modal -->
-  <div class="modal" id="modal" hidden>
-    <div class="modal-box">
-      <button class="modal-close" id="modalClose" aria-label="Close">×</button>
-      <img loading="lazy" decoding="async" src="public/hero-underwater.webp" alt="Our journey" />
-      <p>Our journey video is coming soon.</p>
-    </div>
-  </div>
-
-  <script src="script.js?v=32"></script>
+  <script src="script.js?v=33"></script>
   <script src="search.js?v=26"></script>
 </body>
 </html>
