@@ -800,3 +800,17 @@ html.vp-hide body { visibility: hidden; }
 .fx .text-card p, .fx .pc-head h3, .fx .pc-head p, .fx .pep-list, .fx .feed-raw, .fx .feed-add, .fx .spec, .fx .ben-list { text-shadow: 0 1px 3px rgba(0,0,0,.55); }
 .fx .pp-card h2, .fx .text-card h3, .fx h1, .fx h2 { text-shadow: none; }
 .fx .pp-enquiry .quote-form { background: none; border: 0; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
+
+/* Solomon star (hexagram) in the welcome popup */
+.promo-box { isolation: isolate; overflow: hidden; }
+.promo-box > :not(.promo-star):not(.promo-close) { position: relative; z-index: 1; }
+.promo-star {
+  position: absolute; z-index: 0; left: 50%; top: 50%; width: 125%; height: auto; max-width: 640px; aspect-ratio: 1;
+  transform: translate(-50%, -50%); opacity: .3; pointer-events: none;
+  filter: drop-shadow(0 0 8px rgba(212, 167, 74, .8)); animation: star-spin 60s linear infinite;
+}
+.promo-mark { display: block; width: 46px; height: 46px; margin: 0 auto 6px; filter: drop-shadow(0 0 8px rgba(243, 213, 138, .85)); animation: star-pulse 3s ease-in-out infinite; }
+@keyframes star-spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+@keyframes star-pulse { 50% { filter: drop-shadow(0 0 16px rgba(243, 213, 138, 1)); transform: scale(1.06); } }
+.promo-close { z-index: 2; }
+@media (prefers-reduced-motion: reduce) { .promo-star, .promo-mark { animation: none; } }
