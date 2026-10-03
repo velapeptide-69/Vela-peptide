@@ -772,3 +772,31 @@ html.vp-hide body { visibility: hidden; }
 .fx .hero .benefits { background: rgba(1, 16, 24, .12); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); box-shadow: none; }
 .fx .hero .benefits::before { opacity: .55; }
 .fx .hero .benefit, .fx .hero .science, .fx .site-header .main-nav a, .fx .site-header .icon-btn { text-shadow: 0 1px 4px rgba(0, 0, 0, .9), 0 0 10px rgba(0, 0, 0, .6); }
+
+/* ================= High glassmorphism ================= */
+:root { --glass: linear-gradient(125deg, rgba(255,255,255,.20) 0%, rgba(255,255,255,.06) 32%, rgba(255,255,255,.03) 60%, rgba(255,255,255,.10) 100%);
+  --glass-edge: rgba(255,255,255,.30); --glass-shadow: 0 10px 34px rgba(0,0,0,.38), inset 0 1px 0 rgba(255,255,255,.45), inset 0 -1px 0 rgba(255,255,255,.08), inset 1px 0 0 rgba(255,255,255,.12); }
+.fx .product-card, .fx .pp-card, .fx .quote-form, .fx .text-card, .fx .srch-panel, .fx .feed-box, .fx .video-frame {
+  background: var(--glass), rgba(6, 40, 58, .16);
+  -webkit-backdrop-filter: blur(26px) saturate(185%) brightness(1.05); backdrop-filter: blur(26px) saturate(185%) brightness(1.05);
+  border: 1px solid var(--glass-edge); box-shadow: var(--glass-shadow);
+}
+.fx .product-card::before, .fx .pp-card::before, .fx .quote-form::before, .fx .text-card::before { opacity: .55; }
+.fx .pc-head { background: rgba(255,255,255,.04); border-bottom: 1px solid rgba(255,255,255,.14); }
+.fx .hero .benefits { background: var(--glass), rgba(6, 40, 58, .06); -webkit-backdrop-filter: blur(14px) saturate(180%); backdrop-filter: blur(14px) saturate(180%); border: 1px solid var(--glass-edge); box-shadow: inset 0 1px 0 rgba(255,255,255,.4), 0 8px 24px rgba(0,0,0,.25); }
+.fx .site-header.scrolled { background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.03)); -webkit-backdrop-filter: blur(14px) saturate(180%); backdrop-filter: blur(14px) saturate(180%); border-bottom: 1px solid rgba(255,255,255,.22); box-shadow: inset 0 -1px 0 rgba(255,255,255,.06); }
+.fx .site-footer { background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02)); -webkit-backdrop-filter: blur(18px) saturate(170%); backdrop-filter: blur(18px) saturate(170%); border-top: 1px solid rgba(255,255,255,.2); }
+.fx .btn-outline, .fx .sl-nav, .fx .sl-bar, .fx .soc, .fx .lb-close, .fx .feed-close, .fx .srch-close, .fx .promo-close, .fx .pc-arrow, .fx .wm-pill, .fx .main-nav a.active {
+  background: linear-gradient(135deg, rgba(255,255,255,.22), rgba(255,255,255,.05)); -webkit-backdrop-filter: blur(12px) saturate(180%); backdrop-filter: blur(12px) saturate(180%);
+  border-color: rgba(255,255,255,.38); box-shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 4px 14px rgba(0,0,0,.25);
+}
+.fx .btn-primary { box-shadow: inset 0 1px 0 rgba(255,255,255,.6), inset 0 -2px 6px rgba(0,0,0,.15), 0 0 22px var(--green-glow); }
+.fx .quote-form input, .fx .quote-form select, .fx .quote-form textarea, .fx .srch-row input {
+  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.22); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); box-shadow: inset 0 1px 2px rgba(0,0,0,.25);
+}
+.fx .pp-banner, .fx .slider { border-color: rgba(255,255,255,.3); box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 0 40px rgba(34, 165, 230, .2); }
+.fx .promo-box { -webkit-backdrop-filter: blur(26px) saturate(170%); backdrop-filter: blur(26px) saturate(170%); box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 20px 60px rgba(0,0,0,.6), 0 0 36px rgba(212, 167, 74, .28); }
+.fx .feed-note { background: linear-gradient(135deg, rgba(255,255,255,.12), rgba(255,255,255,.03)); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+.fx .text-card p, .fx .pc-head h3, .fx .pc-head p, .fx .pep-list, .fx .feed-raw, .fx .feed-add, .fx .spec, .fx .ben-list { text-shadow: 0 1px 3px rgba(0,0,0,.55); }
+.fx .pp-card h2, .fx .text-card h3, .fx h1, .fx h2 { text-shadow: none; }
+.fx .pp-enquiry .quote-form { background: none; border: 0; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
