@@ -99,12 +99,6 @@ window.addEventListener("scroll", setActive, { passive: true });
   }
 })();
 
-// Journey modal
-const modal = document.getElementById("modal");
-document.getElementById("journeyBtn").addEventListener("click", () => (modal.hidden = false));
-document.getElementById("modalClose").addEventListener("click", () => (modal.hidden = true));
-modal.addEventListener("click", (e) => { if (e.target === modal) modal.hidden = true; });
-document.addEventListener("keydown", (e) => { if (e.key === "Escape") modal.hidden = true; });
 
 // Quote form -> opens WhatsApp with the enquiry filled in
 document.getElementById("quoteForm").addEventListener("submit", (e) => {
