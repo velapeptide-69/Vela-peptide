@@ -630,29 +630,6 @@ body.fx { background: #03130f; }
 .srch-empty { padding: 14px; color: var(--muted); }
 .srch-hint { font-size: 12px; color: var(--muted); padding: 8px 16px 12px; border-top: 1px solid rgba(255,255,255,.06); }
 
-/* Solomon star (hexagram) design for the welcome popup */
-.promo-box { isolation: isolate; overflow: hidden; }
-.promo-box > :not(.promo-star):not(.promo-close) { position: relative; z-index: 1; }
-.promo-star {
-  position: absolute; z-index: 0; left: 50%; top: 50%; width: 125%; height: auto; max-width: 640px; aspect-ratio: 1;
-  transform: translate(-50%, -50%); opacity: .32; pointer-events: none;
-  filter: drop-shadow(0 0 8px rgba(34, 216, 230, .8));
-  animation: star-spin 60s linear infinite;
-}
-.promo-mark { display: block; width: 46px; height: 46px; margin: 0 auto 6px; filter: drop-shadow(0 0 8px rgba(125, 240, 106, .8)); animation: star-pulse 3s ease-in-out infinite; }
-@keyframes star-spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
-@keyframes star-pulse { 50% { filter: drop-shadow(0 0 16px rgba(34, 216, 230, 1)); transform: scale(1.06); } }
-.promo-box::before {
-  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; border-radius: inherit;
-  background:
-    linear-gradient(var(--cyan), var(--cyan)) top 12px left 12px / 18px 2px no-repeat,
-    linear-gradient(var(--cyan), var(--cyan)) top 12px left 12px / 2px 18px no-repeat,
-    linear-gradient(var(--cyan), var(--cyan)) bottom 12px right 12px / 18px 2px no-repeat,
-    linear-gradient(var(--cyan), var(--cyan)) bottom 12px right 12px / 2px 18px no-repeat;
-  opacity: .8;
-}
-.promo-close { z-index: 2; }
-@media (prefers-reduced-motion: reduce) { .promo-star, .promo-mark { animation: none; } }
 
 @media (prefers-reduced-motion: reduce) {
   .slide, .slide.is-active { transition: none !important; }
@@ -716,3 +693,29 @@ html.vp-hide body { visibility: hidden; }
 .science { border-right: 0; }
 
 .info-grid.single { grid-template-columns: 1fr; max-width: 900px; }
+
+/* Welcome popup: black, brown, golden and green palette */
+.promo-box {
+  background: radial-gradient(ellipse at top, rgba(212, 167, 74, .18), transparent 60%), linear-gradient(160deg, rgba(36, 24, 14, .72), rgba(6, 6, 5, .82));
+  border: 1px solid rgba(212, 167, 74, .75);
+  box-shadow: 0 0 0 1px rgba(125, 200, 80, .25), 0 20px 60px rgba(0, 0, 0, .7), 0 0 36px rgba(212, 167, 74, .28);
+}
+.promo-box::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
+  background:
+    linear-gradient(#d4a74a, #d4a74a) top 12px left 12px / 18px 2px no-repeat,
+    linear-gradient(#d4a74a, #d4a74a) top 12px left 12px / 2px 18px no-repeat,
+    linear-gradient(#7dc850, #7dc850) bottom 12px right 12px / 18px 2px no-repeat,
+    linear-gradient(#7dc850, #7dc850) bottom 12px right 12px / 2px 18px no-repeat;
+}
+.promo-tag { color: #7dc850; }
+.promo-title, .fx .promo-title {
+  background: linear-gradient(90deg, #f3d58a, #d4a74a 55%, #b07a2e); -webkit-background-clip: text; background-clip: text;
+  color: transparent; -webkit-text-fill-color: transparent; text-shadow: none; filter: drop-shadow(0 2px 6px rgba(0, 0, 0, .7));
+}
+.promo-text { color: #f1e6d0; }
+.promo-chips li { color: #f3d58a; background: rgba(90, 56, 26, .55); border-color: rgba(212, 167, 74, .7); }
+.promo-strong { color: #7dc850; }
+.promo-close { border-color: rgba(212, 167, 74, .85); background: rgba(10, 8, 6, .6); }
+.promo-close:hover, .promo-close:focus-visible { background: rgba(212, 167, 74, .3); }
+.promo .btn-primary { background: linear-gradient(90deg, #7dc850, #d4a74a); color: #120c06; box-shadow: 0 0 18px rgba(212, 167, 74, .45); }
