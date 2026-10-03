@@ -822,3 +822,7 @@ html.vp-hide body { visibility: hidden; }
 
 .contact-grid.single { grid-template-columns: 1fr; max-width: 760px; text-align: center; }
 .contact-grid.single .eyebrow, .contact-grid.single .contact-btns { justify-content: center; }
+
+/* Space between the product range and the fish species row */
+.products { padding-bottom: 70px; }
+@media (max-width: 560px) { .products { padding-bottom: 48px; } }
