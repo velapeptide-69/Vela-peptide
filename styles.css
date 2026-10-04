@@ -822,3 +822,13 @@ html.vp-hide body { visibility: hidden; }
 /* Space between the product range and the fish species row */
 .products { padding-bottom: 70px; }
 @media (max-width: 560px) { .products { padding-bottom: 48px; } }
+
+/* FAQ (SEO questions, collapsed by default) */
+.faq-list { display: grid; gap: 10px; }
+.faq details { border: 1px solid var(--line); border-radius: 12px; background: rgba(255, 255, 255, .04); }
+.faq summary { cursor: pointer; list-style: none; padding: 14px 44px 14px 16px; font-weight: 600; position: relative; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 16px; top: 50%; transform: translateY(-50%); font-size: 22px; color: var(--green, #84eb29); }
+.faq details[open] summary::after { content: "–"; }
+.faq details p { margin: 0; padding: 0 16px 16px; color: var(--muted); line-height: 1.7; }
+.pp .faq { margin-top: 24px; }
