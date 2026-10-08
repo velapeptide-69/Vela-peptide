@@ -414,6 +414,7 @@ h2 { font-size: clamp(26px, 3vw, 36px); font-weight: 700; letter-spacing: -.5px;
 .pp-banner { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); box-shadow: 0 0 30px rgba(115, 230, 44, .15); margin-bottom: 24px; }
 .pp-banner img { width: 100%; height: auto; image-rendering: -webkit-optimize-contrast; }
 .pp-banner a { display: block; cursor: zoom-in; }
+.pp-banner-sq { max-width: 720px; margin-inline: auto; }
 .pp-banner figcaption { font-size: 12px; color: var(--muted); text-align: center; padding: 6px 0 8px; background: rgba(0,0,0,.3); }
 .sym-list .pep-dot { font-weight: 800; font-size: 13px; letter-spacing: -.3px; font-style: normal; }
 .sym-list li { padding: 8px 2px; }
