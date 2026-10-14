@@ -429,7 +429,7 @@ body.fx::before {
   background:
     radial-gradient(ellipse 60% 40% at 15% 0%, rgba(115, 230, 44, .14), transparent 70%),
     linear-gradient(180deg, rgba(5, 16, 1, .45), rgba(4, 14, 1, .65)),
-    url("public/bg-sphere.webp") center 35% / cover no-repeat;
+    url("public/bg-sphere.webp?v=2") center 35% / cover no-repeat;
 }
 /* Slow drift of the background image; the layer is oversized so its edges never show */
 body.fx::before { inset: -8%; transform-origin: 50% 40%; animation: bg-drift 24s ease-in-out infinite alternate; will-change: transform; }
