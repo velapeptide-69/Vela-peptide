@@ -654,7 +654,7 @@ html.vp-hide body { visibility: hidden; }
 /* Fish feed pages */
 .fish-hero { flex-direction: row; align-items: center; justify-content: space-between; gap: 24px; }
 .fish-hero .hi { font-size: .6em; color: #84eb29; -webkit-text-fill-color: #84eb29; }
-.fish-hero-img { width: min(420px, 45%); aspect-ratio: 2 / 1; object-fit: cover; -webkit-mask-image: radial-gradient(ellipse 50% 48% at 50% 50%, #000 55%, transparent 100%); mask-image: radial-gradient(ellipse 50% 48% at 50% 50%, #000 55%, transparent 100%); }
+.fish-hero-img { width: min(420px, 45%); height: auto; aspect-ratio: 2 / 1; object-fit: cover; -webkit-mask-image: radial-gradient(ellipse 50% 48% at 50% 50%, #000 55%, transparent 100%); mask-image: radial-gradient(ellipse 50% 48% at 50% 50%, #000 55%, transparent 100%); }
 .feed-page { grid-template-columns: 1fr 1fr; }
 .feed-page .feed-raw b, .feed-page .feed-add a { font-size: 16px; }
 .pp > .container > .feed-note { margin: 0 0 20px; }
