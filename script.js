@@ -164,17 +164,20 @@ window.addEventListener("scroll", setActive, { passive: true });
   document.addEventListener("visibilitychange", () => { if (document.hidden) stop(); else if (visible && !paused) start(); });
 })();
 
-// Fish pyramid: every few seconds the fish swap places, gliding to their new spots
+// Fish pyramid: every few seconds each fish moves one spot anti-clockwise around the pyramid, gliding there
+// Spots (CSS nth-child): 1 top, 2 middle-left, 3 middle-right, 4 bottom-left, 5 bottom-centre, 6 bottom-right
 (function () {
   const row = document.querySelector(".species-row");
   if (!row || !row.animate || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const PATH = [0, 1, 3, 4, 5, 2]; // top -> middle-left -> bottom-left -> bottom-centre -> bottom-right -> middle-right -> top
   let timer = null, paused = false, visible = false;
   function shuffle() {
     if (paused || !visible || document.hidden) return;
     const fish = [...row.children];
+    if (fish.length !== PATH.length) return;
     const before = new Map(fish.map((f) => [f, f.getBoundingClientRect()]));
-    let order;
-    do { order = fish.slice().sort(() => Math.random() - 0.5); } while (order.every((f, i) => f === fish[i]));
+    const order = fish.slice();
+    PATH.forEach((spot, i) => { order[PATH[(i + 1) % PATH.length]] = fish[spot]; });
     order.forEach((f) => row.appendChild(f));
     order.forEach((f) => {
       const a = before.get(f), b = f.getBoundingClientRect();
