@@ -442,6 +442,12 @@ body.fx::before { transform-origin: 50% 0; animation: bg-drift 20s ease-in-out i
   0%   { transform: scale(1); }
   100% { transform: scale(1.05); }
 }
+/* Screens taller than the image (phones): fill the height instead, so no blurred band shows below.
+   The top stays pinned; only a little of the sides is trimmed. */
+@media (max-aspect-ratio: 1073/1466) {
+  body.fx::before { background-size: auto, auto, cover; }
+  html:has(body.fx)::before { display: none; }
+}
 @media (prefers-reduced-motion: reduce) { body.fx::before { animation: none; } }
 body.fx .products, body.fx .contact, body.fx .species { background: transparent; }
 body.fx .species .waterline { opacity: .5; }
