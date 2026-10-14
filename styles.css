@@ -423,20 +423,24 @@ body.product-page > main { flex: 1 0 auto; }
 @keyframes wa-pulse { 0% { box-shadow: 0 6px 20px rgba(0,0,0,.4), 0 0 0 0 rgba(37,211,102,.55); } 70% { box-shadow: 0 6px 20px rgba(0,0,0,.4), 0 0 0 16px rgba(37,211,102,0); } 100% { box-shadow: 0 6px 20px rgba(0,0,0,.4), 0 0 0 0 rgba(37,211,102,0); } }
 
 /* ================= Futuristic layer ================= */
-/* Tech grid + glow behind every page */
+/* Background: the whole image is always shown (contain); a blurred copy fills any space around it */
+html:has(body.fx)::before {
+  content: ""; position: fixed; inset: -60px; z-index: -2; pointer-events: none;
+  background: url("public/bg-sphere.webp?v=2") center / cover no-repeat;
+  filter: blur(28px) brightness(.8) saturate(1.15);
+}
 body.fx::before {
   content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
   background:
     radial-gradient(ellipse 60% 40% at 15% 0%, rgba(115, 230, 44, .14), transparent 70%),
-    linear-gradient(180deg, rgba(5, 16, 1, .45), rgba(4, 14, 1, .65)),
-    url("public/bg-sphere.webp?v=2") center 35% / cover no-repeat;
+    linear-gradient(180deg, rgba(5, 16, 1, .35), rgba(4, 14, 1, .55)),
+    url("public/bg-sphere.webp?v=2") center top / contain no-repeat;
 }
-/* Slow drift of the background image; the layer is oversized so its edges never show */
-body.fx::before { inset: -8%; transform-origin: 50% 40%; animation: bg-drift 24s ease-in-out infinite alternate; will-change: transform; }
+/* Gentle breathing zoom that never pushes the top of the image off screen */
+body.fx::before { transform-origin: 50% 0; animation: bg-drift 20s ease-in-out infinite alternate; will-change: transform; }
 @keyframes bg-drift {
-  0%   { transform: scale(1) translate(0, 0); }
-  50%  { transform: scale(1.08) translate(-2.5%, 1.5%); }
-  100% { transform: scale(1.12) translate(2.5%, -1.5%); }
+  0%   { transform: scale(1); }
+  100% { transform: scale(1.05); }
 }
 @media (prefers-reduced-motion: reduce) { body.fx::before { animation: none; } }
 body.fx .products, body.fx .contact, body.fx .species { background: transparent; }
