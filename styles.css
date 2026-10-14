@@ -399,28 +399,28 @@ body.product-page > main { flex: 1 0 auto; }
 .socials { display: flex; gap: 10px; align-items: center; }
 .soc { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; border: 1.5px solid rgba(255,255,255,.2); color: var(--text); transition: background .2s, border-color .2s, color .2s; }
 .soc svg { width: 18px; height: 18px; }
-.soc-wa:hover { background: #25d366; border-color: #25d366; color: #fff; }
+.soc-wa:hover { background: linear-gradient(180deg, #3cbf45 0%, #249614 45%, #0f600e 100%); border-color: #249614; color: #fff; }
 .soc-ig:hover { background: linear-gradient(45deg, #f9a825, #e1306c, #833ab4); border-color: transparent; color: #fff; }
 .footer-inner { align-items: center; padding-right: 96px; }
 .hdr-soc { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; color: #fff; flex-shrink: 0; transition: transform .2s, box-shadow .2s; }
 .hdr-soc svg { width: 20px; height: 20px; }
-.hdr-wa { background: #25d366; }
+.hdr-wa { background: linear-gradient(180deg, #3cbf45 0%, #249614 45%, #0f600e 100%); border: 1px solid rgba(160, 240, 140, .55); }
 .hdr-ig { background: linear-gradient(45deg, #f9a825, #e1306c, #833ab4); }
 .hdr-soc:hover { transform: translateY(-2px); box-shadow: 0 0 14px rgba(255,255,255,.25); }
 @media (max-width: 560px) { .footer-inner { padding-right: 0; } .site-footer { padding-bottom: 92px; } }
 .contact-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
 .contact-btns svg { width: 20px; height: 20px; }
-.btn-wa { background: #25d366; color: #fff; box-shadow: 0 0 18px rgba(37, 211, 102, .45); }
-.btn-wa:hover { transform: translateY(-2px); box-shadow: 0 0 28px rgba(37, 211, 102, .6); }
+.btn-wa { background: linear-gradient(180deg, #3cbf45 0%, #249614 45%, #0f600e 100%); color: #fff; border: 1px solid rgba(160, 240, 140, .55); box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 0 18px rgba(36, 150, 20, .5); }
+.btn-wa:hover { transform: translateY(-2px); box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 0 28px rgba(36, 150, 20, .65); }
 .wa-float {
   position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); z-index: 60;
   width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center;
-  background: #25d366; color: #fff; box-shadow: 0 6px 20px rgba(0,0,0,.4), 0 0 0 0 rgba(37, 211, 102, .6);
+  background: linear-gradient(180deg, #3cbf45 0%, #249614 45%, #0f600e 100%); color: #fff; border: 1px solid rgba(160, 240, 140, .6); box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 6px 20px rgba(0,0,0,.4), 0 0 0 0 rgba(36, 150, 20, .6);
   animation: wa-pulse 2.4s infinite; transition: transform .2s;
 }
 .wa-float svg { width: 32px; height: 32px; }
 .wa-float:hover { transform: scale(1.08); }
-@keyframes wa-pulse { 0% { box-shadow: 0 6px 20px rgba(0,0,0,.4), 0 0 0 0 rgba(37,211,102,.55); } 70% { box-shadow: 0 6px 20px rgba(0,0,0,.4), 0 0 0 16px rgba(37,211,102,0); } 100% { box-shadow: 0 6px 20px rgba(0,0,0,.4), 0 0 0 0 rgba(37,211,102,0); } }
+@keyframes wa-pulse { 0% { box-shadow: 0 6px 20px rgba(0,0,0,.4), 0 0 0 0 rgba(36,150,20,.55); } 70% { box-shadow: 0 6px 20px rgba(0,0,0,.4), 0 0 0 16px rgba(36,150,20,0); } 100% { box-shadow: 0 6px 20px rgba(0,0,0,.4), 0 0 0 0 rgba(36,150,20,0); } }
 
 /* ================= Futuristic layer ================= */
 /* Background: the whole image is always shown (contain); a blurred copy fills any space around it */
