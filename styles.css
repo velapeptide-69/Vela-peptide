@@ -490,6 +490,14 @@ body.fx::before {
     linear-gradient(180deg, rgba(5, 16, 1, .45), rgba(4, 14, 1, .65)),
     url("public/bg-sphere.webp") center 35% / cover no-repeat;
 }
+/* Slow drift of the background image; the layer is oversized so its edges never show */
+body.fx::before { inset: -8%; transform-origin: 50% 40%; animation: bg-drift 24s ease-in-out infinite alternate; will-change: transform; }
+@keyframes bg-drift {
+  0%   { transform: scale(1) translate(0, 0); }
+  50%  { transform: scale(1.08) translate(-2.5%, 1.5%); }
+  100% { transform: scale(1.12) translate(2.5%, -1.5%); }
+}
+@media (prefers-reduced-motion: reduce) { body.fx::before { animation: none; } }
 body.fx .products, body.fx .info, body.fx .contact, body.fx .species { background: transparent; }
 body.fx .species .waterline { opacity: .5; }
 body.fx { background: #061302; }
