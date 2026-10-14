@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Exo+2:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=60" />
+  <link rel="stylesheet" href="styles.css?v=61" />
   <script src="protect.js?v=6" defer></script>
 </head>
 <body class="product-page fx">
@@ -90,10 +90,6 @@
         </div>
       </section>
 
-      <figure class="pp-banner">
-        <a href="public/banner-oxygen.webp" title="View full banner"><img src="public/banner-oxygen.webp" srcset="public/banner-oxygen-900.webp 900w, public/banner-oxygen.webp 1536w" sizes="(max-width: 1100px) 100vw, 1030px" fetchpriority="high" alt="Vela Peptide oxygen booster: O2 bubbles rising through pond water with healthy fish" width="1536" height="1024" /></a>
-        <figcaption>Tap the image to view it full screen</figcaption>
-      </figure>
 
       <div class="pp-grid">
         <section class="pp-card">
@@ -205,30 +201,6 @@
       document.getElementById("ppNote").textContent = "Thanks! WhatsApp will open with your enquiry. Just tap Send.";
     });
 
-    // Banner viewer: opens the banner over the page; tap the image to zoom, X / back / Esc to close
-    (function () {
-      const link = document.querySelector(".pp-banner a");
-      if (!link) return;
-      const box = document.createElement("div");
-      box.className = "lb"; box.hidden = true;
-      box.setAttribute("role", "dialog"); box.setAttribute("aria-modal", "true"); box.setAttribute("aria-label", "Product banner");
-      box.innerHTML = '<button class="lb-close" type="button" aria-label="Close">&times;</button><div class="lb-scroll"><img alt="" /></div><p class="lb-hint">Tap image to zoom · Tap × to close</p>';
-      document.body.appendChild(box);
-      const img = box.querySelector("img"), scroller = box.querySelector(".lb-scroll");
-      img.src = link.getAttribute("href"); img.alt = link.querySelector("img").alt;
-      function open(e) { e.preventDefault(); box.hidden = false; document.body.style.overflow = "hidden"; history.pushState({ lb: 1 }, ""); box.querySelector(".lb-close").focus(); }
-      function close() { if (box.hidden) return; box.hidden = true; box.classList.remove("zoom"); document.body.style.overflow = ""; link.focus(); }
-      link.addEventListener("click", open);
-      box.querySelector(".lb-close").addEventListener("click", () => history.back());
-      box.addEventListener("click", (e) => { if (e.target === box || e.target === scroller) history.back(); });
-      img.addEventListener("click", (e) => {
-        const r = img.getBoundingClientRect(), fx = (e.clientX - r.left) / r.width, fy = (e.clientY - r.top) / r.height;
-        box.classList.toggle("zoom");
-        if (box.classList.contains("zoom")) { scroller.scrollLeft = fx * img.offsetWidth - scroller.clientWidth / 2; scroller.scrollTop = fy * img.offsetHeight - scroller.clientHeight / 2; }
-      });
-      addEventListener("popstate", close);
-      addEventListener("keydown", (e) => { if (e.key === "Escape" && !box.hidden) history.back(); });
-    })();
     
   </script>
   <script src="search.js?v=44"></script>
