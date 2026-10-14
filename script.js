@@ -164,4 +164,31 @@ window.addEventListener("scroll", setActive, { passive: true });
   document.addEventListener("visibilitychange", () => { if (document.hidden) stop(); else if (visible && !paused) start(); });
 })();
 
-
+// Fish pyramid: every few seconds the fish swap places, gliding to their new spots
+(function () {
+  const row = document.querySelector(".species-row");
+  if (!row || !row.animate || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  let timer = null, paused = false, visible = false;
+  function shuffle() {
+    if (paused || !visible || document.hidden) return;
+    const fish = [...row.children];
+    const before = new Map(fish.map((f) => [f, f.getBoundingClientRect()]));
+    let order;
+    do { order = fish.slice().sort(() => Math.random() - 0.5); } while (order.every((f, i) => f === fish[i]));
+    order.forEach((f) => row.appendChild(f));
+    order.forEach((f) => {
+      const a = before.get(f), b = f.getBoundingClientRect();
+      const dx = a.left - b.left, dy = a.top - b.top;
+      if (dx || dy) f.animate([{ transform: `translate(${dx}px, ${dy}px)` }, { transform: "none" }], { duration: 1100, easing: "cubic-bezier(.25,.8,.25,1)" });
+    });
+  }
+  function start() { clearInterval(timer); timer = setInterval(shuffle, 4000); }
+  function stop() { clearInterval(timer); }
+  row.addEventListener("mouseenter", () => { paused = true; });
+  row.addEventListener("mouseleave", () => { paused = false; });
+  row.addEventListener("focusin", () => { paused = true; });
+  row.addEventListener("focusout", () => { paused = false; });
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver((es) => es.forEach((e) => { visible = e.isIntersecting; if (visible) start(); else stop(); }), { threshold: 0.2 }).observe(row);
+  } else { visible = true; start(); }
+})();
