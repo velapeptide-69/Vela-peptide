@@ -602,7 +602,7 @@ html.vp-hide body { visibility: hidden; }
   border: 1px solid rgba(115, 230, 44, .55); box-shadow: 0 0 10px rgba(115, 230, 44, .35), inset 0 0 8px rgba(108, 214, 14, .15);
   text-shadow: 0 0 6px rgba(115, 230, 44, .7);
 }
-.wm-pill svg { width: 12px; height: 12px; color: #84eb29; filter: drop-shadow(0 0 4px rgba(108, 214, 14, .9)); }
+.wm .wm-pill img, .pc-img .wm .wm-pill img { position: static; display: block; width: 14px; height: 14px; max-width: none; flex-shrink: 0; transform: none; transition: none; filter: drop-shadow(0 0 3px rgba(0, 0, 0, .5)); }
 .slider > .wm .wm-pill { left: auto; right: 64px; bottom: 14px; font-size: 12px; }
 @media (max-width: 820px) { .slider > .wm .wm-pill { right: 54px; bottom: 54px; font-size: 10px; } .wm-pill { font-size: 9.5px; padding: 3px 8px 3px 6px; } }
 
@@ -678,7 +678,7 @@ html.vp-hide body { visibility: hidden; }
 .fx .product-card::before, .fx .pp-card::before { opacity: .55; }
 .fx .pc-head { background: rgba(255,255,255,.04); border-bottom: 1px solid rgba(255,255,255,.14); }
 .fx .hero .benefits { background: var(--glass), rgba(21, 58, 9, .06); -webkit-backdrop-filter: blur(14px) saturate(180%); backdrop-filter: blur(14px) saturate(180%); border: 1px solid var(--glass-edge); box-shadow: inset 0 1px 0 rgba(255,255,255,.4), 0 8px 24px rgba(0,0,0,.25); }
-.fx .site-header.scrolled { background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.03)); -webkit-backdrop-filter: blur(14px) saturate(180%); backdrop-filter: blur(14px) saturate(180%); border-bottom: 1px solid rgba(255,255,255,.22); box-shadow: inset 0 -1px 0 rgba(255,255,255,.06); }
+.fx .site-header.scrolled { background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0)); -webkit-backdrop-filter: blur(5px) saturate(140%); backdrop-filter: blur(5px) saturate(140%); border-bottom: 1px solid rgba(255,255,255,.16); box-shadow: none; }
 .fx .site-footer { background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02)); -webkit-backdrop-filter: blur(18px) saturate(170%); backdrop-filter: blur(18px) saturate(170%); border-top: 1px solid rgba(255,255,255,.2); }
 .fx .btn-outline, .fx .sl-nav, .fx .sl-bar, .fx .soc, .fx .srch-close, .fx .promo-close, .fx .pc-arrow, .fx .wm-pill, .fx .main-nav a.active {
   background: linear-gradient(135deg, rgba(255,255,255,.22), rgba(255,255,255,.05)); -webkit-backdrop-filter: blur(12px) saturate(180%); backdrop-filter: blur(12px) saturate(180%);
